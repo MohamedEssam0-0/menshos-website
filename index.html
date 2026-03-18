@@ -1,0 +1,3817 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENSHOS — Crispy. Saucy. Loaded. | مطعم منشوز الدقي</title>
+
+    <!-- SEO -->
+    <meta name="description" content="MENSHOS — Crispy. Saucy. Loaded. ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. بيك-أب فقط من نادي الصيد، الدقي، القاهرة. اتصل: 01147324430">
+    <meta name="keywords" content="MENSHOS, منشوز, مطعم الدقي, فرايد تشيكن, حواوشي, ماك اند تشيز, برجر, ساندوتش, نادي الصيد, الدقي, القاهرة, مطعم, restaurant cairo, dokki restaurant, fried chicken cairo">
+    <meta name="author" content="MENSHOS">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FFD100">
+    <link rel="canonical" href="https://menshos.netlify.app/">
+
+    <!-- Open Graph (WhatsApp, Facebook, Instagram previews) -->
+    <meta property="og:type" content="restaurant">
+    <meta property="og:title" content="MENSHOS — Crispy. Saucy. Loaded.">
+    <meta property="og:description" content="ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. بيك-أب فقط من نادي الصيد، الدقي، القاهرة. Sandwiches, burgers, wings, pasta, hawawshi & more. Pick-up only from El Said Club, Dokki.">
+    <meta property="og:image" content="https://menshos.netlify.app/images/lf1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://menshos.netlify.app/">
+    <meta property="og:site_name" content="MENSHOS">
+    <meta property="og:locale" content="ar_EG">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MENSHOS — Crispy. Saucy. Loaded.">
+    <meta name="twitter:description" content="ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. بيك-أب فقط من نادي الصيد، الدقي، القاهرة.">
+    <meta name="twitter:image" content="https://menshos.netlify.app/images/lf1.jpg">
+
+    <!-- Local Business structured data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "MENSHOS",
+      "description": "Crispy. Saucy. Loaded. ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر",
+      "url": "https://menshos.netlify.app/",
+      "telephone": "+201147324430",
+      "servesCuisine": ["Egyptian", "American", "Fast Food"],
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "نادي الصيد، الدقي",
+        "addressLocality": "Dokki",
+        "addressRegion": "Cairo",
+        "addressCountry": "EG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "30.0444",
+        "longitude": "31.2097"
+      },
+      "openingHours": "Mo-Su",
+      "image": "https://menshos.netlify.app/images/lf1.jpg",
+      "hasMap": "https://maps.app.goo.gl/GD3JFvigdbrw57aB8"
+    }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #080808;
+            --yellow: #FFD100;
+            --white: #fff;
+            --gray: #999;
+            --card: #131313;
+            --card2: #1c1c1c;
+            --border: rgba(255, 209, 0, .12);
+            --green: #25D366;
+            --red: #FF4C1F;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        [data-lang="en"] body,
+        [data-lang="en"] {
+            direction: ltr;
+            font-family: 'Barlow Condensed', 'Cairo', sans-serif;
+        }
+
+        /* TICKER */
+        .ticker {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 7px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+        }
+
+        .ticker-set {
+            display: flex;
+            flex-shrink: 0;
+        }
+
+        .ticker-set span {
+            margin: 0 3rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .8rem;
+            letter-spacing: .05em;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        @keyframes ticker-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(var(--ticker-px, -1000px)); }
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(8, 8, 8, .97);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 5vw;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.9rem;
+            color: var(--yellow);
+            letter-spacing: .08em;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            transition: color .2s;
+        }
+
+        nav a:hover {
+            color: var(--yellow);
+        }
+
+        .hdr-right {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            flex-shrink: 0;
+        }
+
+        /* LANG SWITCH */
+        .lang-toggle {
+            display: flex;
+            background: var(--card);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            padding: .3rem .7rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .78rem;
+            letter-spacing: .08em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--gray);
+            transition: all .2s;
+        }
+
+        .lang-btn.active {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .cart-btn {
+            position: relative;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--yellow);
+            cursor: pointer;
+            padding: .4rem .9rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .82rem;
+            letter-spacing: .06em;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            transition: background .2s;
+            white-space: nowrap;
+        }
+
+        .cart-btn:hover {
+            background: rgba(255, 209, 0, .08);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -7px;
+            left: -7px;
+            background: var(--red);
+            color: #fff;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            font-size: .6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            transition: transform .2s;
+        }
+
+        .cart-badge.bump {
+            transform: scale(1.5);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 88vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 4rem 6vw;
+            gap: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 55% 70% at 65% 50%, rgba(255, 209, 0, .07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .3em;
+            color: var(--yellow);
+            margin-bottom: .8rem;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3.5rem, 7.5vw, 8rem);
+            line-height: .88;
+            letter-spacing: .02em;
+        }
+
+        .hero h1 .y {
+            color: var(--yellow);
+        }
+
+        .hero-sub {
+            margin: 1.4rem 0 2rem;
+            color: var(--gray);
+            font-size: .95rem;
+            line-height: 1.8;
+            max-width: 400px;
+        }
+
+        .btns {
+            display: flex;
+            gap: .8rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-y {
+            background: var(--yellow);
+            color: var(--black);
+            padding: .75rem 1.7rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: .9rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+            transition: all .2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-y:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-o {
+            background: transparent;
+            color: var(--yellow);
+            padding: .75rem 1.7rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: .9rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            border: 2px solid var(--yellow);
+            cursor: pointer;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+            transition: all .2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-o:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .hero-phones {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-phones a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: .85rem;
+            font-weight: 700;
+            transition: color .2s;
+        }
+
+        .hero-phones a:hover {
+            color: var(--yellow);
+        }
+
+        .pickup-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            margin-top: 1rem;
+            background: rgba(255, 209, 0, .08);
+            border: 1px solid rgba(255, 209, 0, .22);
+            color: var(--yellow);
+            padding: .28rem .8rem;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-box {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 1;
+            background: var(--card);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .7rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 209, 0, .07) 0%, transparent 70%);
+        }
+
+        .float-food {
+            font-size: 7rem;
+            animation: flt 3.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 28px rgba(255, 209, 0, .35));
+        }
+
+        @keyframes flt {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-14px)
+            }
+        }
+
+        .live-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--red);
+            color: #fff;
+            padding: .22rem .65rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .7rem;
+            letter-spacing: .1em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .55
+            }
+        }
+
+        /* SECTION */
+        .sec {
+            padding: 4rem 5vw;
+        }
+
+        .sec-alt {
+            background: var(--card);
+        }
+
+        .sec-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .35em;
+            color: var(--yellow);
+            text-transform: uppercase;
+            margin-bottom: .35rem;
+        }
+
+        .sec-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1;
+            letter-spacing: .03em;
+            margin-bottom: .3rem;
+        }
+
+        .yl {
+            width: 48px;
+            height: 3px;
+            background: var(--yellow);
+            margin: 1rem 0 1.8rem;
+        }
+
+        /* BEST SELLERS */
+        .bs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: .5rem;
+        }
+
+        /* MENU STICKY TABS */
+        .menu-nav {
+            position: sticky;
+            top: 60px;
+            z-index: 150;
+            background: rgba(10, 10, 10, .98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: .75rem 5vw;
+        }
+
+        .menu-tabs {
+            display: flex;
+            gap: .5rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .menu-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .mtab{
+            flex-shrink:0;
+            background:transparent;
+            border:1px solid var(--border);
+            color:var(--gray);
+            padding:.42rem 1rem;
+            font-family:'Cairo',sans-serif;
+            font-weight:700;
+            font-size:.78rem;
+            cursor:pointer;
+            transition:all .28s ease, transform .28s ease, box-shadow .28s ease;
+            white-space:nowrap;
+        }
+
+        .mtab:hover,
+        .mtab.on{
+            background:var(--yellow);
+            color:var(--black);
+            border-color:var(--yellow);
+            transform:translateY(-1px);
+            box-shadow:0 0 0 1px rgba(255,209,0,.18), 0 8px 18px rgba(255,209,0,.12);
+        }
+
+        /* CATEGORY BLOCK */
+        .cat-block {
+            padding: 2.5rem 5vw 1.5rem;
+        }
+
+        .cat-block:nth-child(even) {
+            background: rgba(255, 255, 255, .015);
+        }
+
+        .cat-hdr {
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: .9rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cat-icon {
+            font-size: 1.7rem;
+        }
+
+        .cat-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.9rem;
+            color: var(--yellow);
+            letter-spacing: .04em;
+            line-height: 1;
+        }
+
+        .cat-sub {
+            color: var(--gray);
+            font-size: .75rem;
+            margin-top: .1rem;
+        }
+
+        /* ITEM ROW */
+        .items {
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+        }
+
+        .irow {
+            background: var(--card);
+            border: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: .9rem 1.1rem;
+            gap: 1rem;
+            transition: border-color .2s, background .2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .irow::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--yellow);
+            opacity: 0;
+            transition: opacity .2s;
+        }
+
+        .irow:hover {
+            border-color: rgba(255, 209, 0, .3);
+            background: var(--card2);
+        }
+
+        .irow:hover::after {
+            opacity: 1;
+        }
+
+        .iname {
+            font-weight: 700;
+            font-size: .92rem;
+            margin-bottom: .18rem;
+        }
+
+        .idesc {
+            color: var(--gray);
+            font-size: .76rem;
+            line-height: 1.45;
+            margin-bottom: .3rem;
+        }
+
+        .itags {
+            display: flex;
+            gap: .35rem;
+            flex-wrap: wrap;
+            margin-top: .2rem;
+        }
+
+        .itag {
+            padding: .12rem .45rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .62rem;
+            letter-spacing: .07em;
+        }
+
+        .itag-y {
+            background: rgba(255, 209, 0, .12);
+            color: var(--yellow);
+        }
+
+        .itag-r {
+            background: rgba(255, 76, 31, .14);
+            color: var(--red);
+        }
+
+        .itag-g {
+            background: rgba(0, 200, 160, .12);
+            color: #00c8a0;
+        }
+
+        .sauce-row {
+            display: flex;
+            gap: .3rem;
+            flex-wrap: wrap;
+            margin-top: .3rem;
+        }
+
+        .spill {
+            font-size: .63rem;
+            padding: .1rem .4rem;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .07);
+            color: var(--gray);
+        }
+
+        .iright {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: .5rem;
+            min-width: 105px;
+        }
+
+        .iprice {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.45rem;
+            color: var(--yellow);
+            letter-spacing: .04em;
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        .iprice small {
+            font-size: .8rem;
+            color: var(--gray);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .iprice .pnote {
+            display: block;
+            font-size: .67rem;
+            color: var(--gray);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 400;
+            margin-top: .1rem;
+        }
+
+        .add-btn {
+            background: var(--yellow);
+            color: var(--black);
+            border: none;
+            padding: .36rem .85rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: .76rem;
+            letter-spacing: .08em;
+            cursor: pointer;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+
+        .add-btn:hover {
+            background: #fff;
+        }
+
+        .add-btn.added {
+            background: #00c8a0 !important;
+            color: #fff !important;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: var(--card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 209, 0, .08) 0%, transparent 70%);
+        }
+
+        .gbox {
+            position: absolute;
+            bottom: -1rem;
+            left: -1rem;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 1.3rem;
+            max-width: 220px;
+        }
+
+        .gbox .gt {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            line-height: 1.1;
+            margin-bottom: .2rem;
+        }
+
+        .gbox .gs {
+            font-size: .7rem;
+            font-weight: 700;
+            opacity: .7;
+        }
+
+        .about-h {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-h .y {
+            color: var(--yellow);
+        }
+
+        .about-p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: .9rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            border-right: 1px solid var(--border);
+            padding-right: 1.2rem;
+        }
+
+        .stat:last-child {
+            border: none;
+        }
+
+        .snum {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            color: var(--yellow);
+            letter-spacing: .05em;
+            line-height: 1;
+        }
+
+        .slbl {
+            color: var(--gray);
+            font-size: .75rem;
+            margin-top: .2rem;
+        }
+
+        /* PICKUP */
+        .pickup-sec {
+            background: var(--yellow);
+            padding: 4rem 5vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .pl-lbl {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .3em;
+            color: rgba(0, 0, 0, .5);
+            margin-bottom: .4rem;
+            text-transform: uppercase;
+        }
+
+        .pl-h {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            color: var(--black);
+            line-height: 1;
+            letter-spacing: .03em;
+            margin-bottom: .8rem;
+        }
+
+        .pl-sub {
+            color: rgba(0, 0, 0, .65);
+            font-size: .88rem;
+            line-height: 1.75;
+        }
+
+        .pboxes {
+            display: flex;
+            flex-direction: column;
+            gap: .9rem;
+        }
+
+        .pbox {
+            background: rgba(0, 0, 0, .08);
+            padding: .9rem 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+        }
+
+        .pbox-icon {
+            font-size: 1.3rem;
+        }
+
+        .pbox-lbl {
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            opacity: .5;
+            color: var(--black);
+        }
+
+        .pbox-val {
+            font-weight: 700;
+            color: var(--black);
+            font-size: .88rem;
+        }
+
+        .pickbtns {
+            display: flex;
+            gap: .7rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-dk {
+            background: var(--black);
+            color: var(--yellow);
+            padding: .7rem 1.4rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: .85rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+            transition: all .2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-dk:hover {
+            background: #222;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #050505;
+            border-top: 1px solid var(--border);
+            padding: 3.5rem 5vw 2rem;
+        }
+
+        .ftg {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .ft-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.3rem;
+            color: var(--yellow);
+            letter-spacing: .08em;
+            line-height: 1;
+            margin-bottom: .7rem;
+        }
+
+        .ft-desc {
+            color: var(--gray);
+            font-size: .78rem;
+            line-height: 1.7;
+            max-width: 230px;
+        }
+
+        .ft-g {
+            margin-top: 1rem;
+            color: var(--yellow);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .72rem;
+            letter-spacing: .15em;
+        }
+
+        .ft-ct {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .68rem;
+            letter-spacing: .3em;
+            color: var(--yellow);
+            text-transform: uppercase;
+            margin-bottom: .9rem;
+        }
+
+        .ftl {
+            list-style: none;
+        }
+
+        .ftl li {
+            margin-bottom: .45rem;
+        }
+
+        .ftl a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: .8rem;
+            transition: color .2s;
+        }
+
+        .ftl a:hover {
+            color: var(--yellow);
+        }
+
+        .ftbot {
+            border-top: 1px solid var(--border);
+            padding-top: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray);
+            font-size: .72rem;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .ftbot-g {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .78rem;
+            color: var(--yellow);
+            letter-spacing: .1em;
+        }
+
+        /* MOB BAR */
+        .mob-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            background: #0e0e0e;
+            border-top: 1px solid var(--border);
+            padding: .4rem .5rem;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .mob-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .15rem;
+            color: var(--gray);
+            font-size: .58rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: .3rem;
+            transition: color .2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .mob-btn .mi {
+            font-size: 1.2rem;
+        }
+
+        .mob-btn.yel {
+            color: var(--yellow);
+        }
+
+        .mob-btn.grn {
+            color: var(--green);
+        }
+
+        /* ══ CART DRAWER ══ */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .75);
+            z-index: 300;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s;
+        }
+
+        .overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: min(480px, 100vw);
+            background: #111;
+            border-right: 1px solid var(--border);
+            z-index: 301;
+            transform: translateX(-100%);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+            display: flex;
+            flex-direction: column;
+            direction: rtl;
+        }
+
+        .drawer.open {
+            transform: translateX(0);
+        }
+
+        .drw-hdr {
+            padding: 1.1rem 1.4rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .drw-hdr h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.7rem;
+            color: var(--yellow);
+            letter-spacing: .04em;
+        }
+
+        .drw-close {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: .3rem;
+            transition: color .2s;
+        }
+
+        .drw-close:hover {
+            color: #fff;
+        }
+
+        .drw-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 1.4rem;
+            min-height: 0;
+            max-height: 50%;
+        }
+
+        .drw-empty {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--gray);
+        }
+
+        .drw-empty .ei {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .drw-empty p {
+            font-size: .85rem;
+            line-height: 1.7;
+        }
+
+        .ci {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            padding: .9rem 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+
+        .ci-name {
+            font-weight: 700;
+            font-size: .88rem;
+            margin-bottom: .1rem;
+        }
+
+        .ci-mods {
+            font-size: .72rem;
+            color: #00c8a0;
+            margin-bottom: .15rem;
+            font-style: italic;
+        }
+
+        .ci-price {
+            color: var(--yellow);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: .03em;
+        }
+
+        .ci-qty {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin-top: .45rem;
+        }
+
+        .qbtn {
+            background: var(--card2);
+            border: 1px solid var(--border);
+            color: #fff;
+            width: 26px;
+            height: 26px;
+            font-size: .95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+            flex-shrink: 0;
+        }
+
+        .qbtn:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .qnum {
+            font-weight: 700;
+            font-size: .88rem;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .ci-del {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: .75rem;
+            transition: color .2s;
+        }
+
+        .ci-del:hover {
+            color: var(--red);
+        }
+
+        .drw-foot {
+            padding: 1.1rem 1.4rem;
+            border-top: 1px solid var(--border);
+            overflow-y: auto;
+            flex: 1;
+            min-height: 0;
+            max-height: 50%;
+        }
+
+        .drw-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .drw-total-lbl {
+            font-weight: 700;
+            font-size: .88rem;
+        }
+
+        .drw-total-val {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--yellow);
+            letter-spacing: .04em;
+        }
+
+        .time-box {
+            margin-bottom: 1rem;
+        }
+
+        .time-box label {
+            display: block;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: var(--gray);
+            text-transform: uppercase;
+            margin-bottom: .38rem;
+        }
+
+        .time-box input {
+            width: 100%;
+            background: var(--card2);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: .6rem 1rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: .88rem;
+            outline: none;
+            transition: border-color .2s;
+        }
+
+        .time-box input:focus {
+            border-color: var(--yellow);
+        }
+
+        .time-box input::placeholder {
+            color: var(--gray);
+        }
+
+        .wa-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            width: 100%;
+            background: var(--green);
+            color: #fff;
+            border: none;
+            padding: .95rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: .98rem;
+            letter-spacing: .1em;
+            cursor: pointer;
+            transition: all .2s;
+            text-transform: uppercase;
+        }
+
+        .wa-btn:hover {
+            background: #1db954;
+            transform: translateY(-2px);
+        }
+
+        .wa-btn:disabled {
+            opacity: .38;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .cart-note {
+            font-size: .68rem;
+            color: var(--gray);
+            text-align: center;
+            margin-top: .7rem;
+            line-height: 1.5;
+        }
+
+        .drw-clear {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: .72rem;
+            cursor: pointer;
+            transition: color .2s;
+            padding: .2rem 0;
+            margin-bottom: .6rem;
+            display: none;
+        }
+
+        .drw-clear:hover {
+            color: var(--red);
+        }
+
+        /* ══ PAYMENT SELECTOR — NEW ══ */
+        .pay-selector {
+            margin-bottom: 1rem;
+        }
+
+        .pay-selector-label {
+            display: block;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: var(--gray);
+            text-transform: uppercase;
+            margin-bottom: .38rem;
+        }
+
+        .pay-opts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .5rem;
+        }
+
+        .pay-opt {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            padding: .65rem .9rem;
+            background: var(--card2);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .22s;
+            user-select: none;
+        }
+
+        .pay-opt:hover {
+            border-color: rgba(255, 209, 0, .3);
+        }
+
+        .pay-opt.selected {
+            border-color: var(--yellow);
+            background: rgba(255, 209, 0, .07);
+        }
+
+        .pay-opt-radio {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            flex-shrink: 0;
+            transition: all .2s;
+        }
+
+        .pay-opt.selected .pay-opt-radio {
+            border-color: var(--yellow);
+            background: var(--yellow);
+        }
+
+        .pay-opt-text {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .82rem;
+            letter-spacing: .05em;
+            color: var(--gray);
+            transition: color .2s;
+        }
+
+        .pay-opt.selected .pay-opt-text {
+            color: var(--white);
+        }
+
+        /* Instapay info box — hidden by default */
+        .instapay-info {
+            display: none;
+            background: rgba(255, 209, 0, .06);
+            border: 1px solid rgba(255, 209, 0, .25);
+            padding: .85rem 1rem;
+            margin-bottom: 1rem;
+            animation: fadeSlide .25s ease;
+        }
+
+        .instapay-info.show {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .instapay-info-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .72rem;
+            letter-spacing: .18em;
+            color: var(--yellow);
+            text-transform: uppercase;
+            margin-bottom: .55rem;
+        }
+
+        .instapay-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.55rem;
+            color: var(--white);
+            letter-spacing: .06em;
+            margin-bottom: .3rem;
+        }
+
+        .instapay-steps {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .28rem;
+        }
+
+        .instapay-steps li {
+            font-size: .72rem;
+            color: var(--gray);
+            line-height: 1.45;
+            padding-right: .2rem;
+        }
+
+        .instapay-steps li::before {
+            content: '→ ';
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        .instapay-warn {
+            margin-top: .6rem;
+            font-size: .67rem;
+            color: rgba(255, 76, 31, .9);
+            font-weight: 700;
+            letter-spacing: .03em;
+        }
+
+        .instapay-screenshot-warn {
+            margin-top: .5rem;
+            padding: .55rem .8rem;
+            background: rgba(255, 76, 31, .09);
+            border: 1px solid rgba(255, 76, 31, .3);
+            font-size: .72rem;
+            color: rgba(255, 76, 31, .95);
+            font-weight: 700;
+            letter-spacing: .02em;
+            line-height: 1.45;
+        }
+
+        /* Pickup location selector */
+        .pickup-loc-selector {
+            margin-bottom: 1rem;
+        }
+
+        /* Side options for main meals */
+        .side-opts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .5rem;
+            margin-bottom: .5rem;
+        }
+
+        .side-opt {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .6rem .9rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .22s;
+            user-select: none;
+        }
+
+        .side-opt:hover { border-color: rgba(255,209,0,.3); }
+
+        .side-opt.selected {
+            border-color: var(--yellow);
+            background: rgba(255,209,0,.07);
+        }
+
+        .side-opt-radio {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            flex-shrink: 0;
+            transition: all .2s;
+        }
+
+        .side-opt.selected .side-opt-radio {
+            border-color: var(--yellow);
+            background: var(--yellow);
+        }
+
+        .side-sub-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .68rem;
+            letter-spacing: .12em;
+            color: var(--gray);
+            text-transform: uppercase;
+            margin: .6rem 0 .35rem;
+        }
+
+        #side-dish-section {
+            margin-top: .5rem;
+            animation: fadeSlide .2s ease;
+        }
+
+        .modal-add-btn:disabled {
+            opacity: .35;
+            cursor: not-allowed;
+        }
+        /* ══ END PAYMENT SELECTOR ══ */
+
+        /* ══ CUSTOMIZATION MODAL ══ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .85);
+            z-index: 400;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            width: min(540px, 100vw);
+            background: #161616;
+            border: 1px solid var(--border);
+            border-bottom: none;
+            padding: 0;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(30px);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .modal-overlay.open .modal {
+            transform: translateY(0);
+        }
+
+        .modal-hdr {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .modal-hdr h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            color: var(--yellow);
+            letter-spacing: .04em;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+            padding: 1.2rem 1.5rem;
+            flex: 1;
+        }
+
+        .modal-item-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: .3rem;
+        }
+
+        .modal-item-desc {
+            color: var(--gray);
+            font-size: .8rem;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+        }
+
+        .mod-section {
+            margin-bottom: 1.4rem;
+        }
+
+        .mod-section-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .72rem;
+            letter-spacing: .25em;
+            color: var(--yellow);
+            text-transform: uppercase;
+            margin-bottom: .7rem;
+            padding-bottom: .4rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mod-opts {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .mod-opt {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .6rem .9rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: border-color .2s;
+        }
+
+        .mod-opt:hover {
+            border-color: rgba(255, 209, 0, .3);
+        }
+
+        .mod-opt.selected {
+            border-color: var(--yellow);
+            background: rgba(255, 209, 0, .07);
+        }
+
+        .mod-opt-left {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+        }
+
+        .mod-opt-check {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all .2s;
+        }
+
+        .mod-opt.selected .mod-opt-check {
+            background: var(--yellow);
+            border-color: var(--yellow);
+        }
+
+        .mod-opt-check::after {
+            content: '✓';
+            font-size: .65rem;
+            color: var(--black);
+            opacity: 0;
+            transition: opacity .2s;
+        }
+
+        .mod-opt.selected .mod-opt-check::after {
+            opacity: 1;
+        }
+
+        .mod-opt-name {
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+        .mod-opt-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            color: var(--yellow);
+        }
+
+        .mod-opt-price.free {
+            color: var(--gray);
+            font-family: 'Cairo', sans-serif;
+            font-size: .72rem;
+        }
+
+        /* sauce radio */
+        .sauce-opt {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem .8rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s;
+            flex: 1;
+        }
+
+        .sauce-opt.sel {
+            background: rgba(255, 209, 0, .1);
+            border-color: var(--yellow);
+        }
+
+        .sauce-opts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .5rem;
+        }
+
+        .sauce-radio {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            flex-shrink: 0;
+            transition: all .2s;
+        }
+
+        .sauce-opt.sel .sauce-radio {
+            border-color: var(--yellow);
+            background: var(--yellow);
+        }
+
+        .sauce-opt-name {
+            font-size: .82rem;
+            font-weight: 600;
+        }
+
+        .modal-qty {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            margin-top: .5rem;
+        }
+
+        .modal-qty-btn {
+            width: 32px;
+            height: 32px;
+            background: var(--card2);
+            border: 1px solid var(--border);
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+        }
+
+        .modal-qty-btn:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .modal-qty-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .modal-footer {
+            padding: 1.1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .modal-total {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            color: var(--yellow);
+            letter-spacing: .04em;
+        }
+
+        .modal-add-btn {
+            background: var(--yellow);
+            color: var(--black);
+            border: none;
+            padding: .8rem 1.8rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: .95rem;
+            letter-spacing: .1em;
+            cursor: pointer;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+            transition: all .2s;
+        }
+
+        .modal-add-btn:hover {
+            background: #fff;
+        }
+
+        /* COMMENT BOX */
+        .mod-note {
+            width: 100%;
+            min-height: 90px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: .8rem .9rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: .84rem;
+            resize: vertical;
+            outline: none;
+            transition: border-color .2s;
+        }
+
+        .mod-note:focus {
+            border-color: var(--yellow);
+        }
+
+        .mod-note::placeholder {
+            color: var(--gray);
+        }
+
+        /* TOAST */
+        #toast {
+            position: fixed;
+            bottom: 4.5rem;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--yellow);
+            color: var(--black);
+            padding: .65rem 1.4rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: .88rem;
+            letter-spacing: .07em;
+            z-index: 500;
+            opacity: 0;
+            transition: opacity .3s;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* FADE */
+        .fi {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        .fi.v {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px) {
+            .ftg {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .pickup-sec {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                display: none;
+            }
+        }
+
+        @media(max-width:768px) {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding: 2.5rem 5vw;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .bs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .ftg {
+                grid-template-columns: 1fr;
+            }
+
+            .mob-bar {
+                display: grid;
+            }
+
+            .drawer {
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
+
+            footer {
+                padding-bottom: 5rem;
+            }
+        }
+
+        @media(max-width:480px) {
+            .bs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                border-radius: 12px 12px 0 0;
+            }
+        }
+        /* ══ LTR OVERRIDES (English mode) ══ */
+
+        /* Header — reverse flex direction so logo goes left, cart goes right */
+        [dir="ltr"] header {
+            flex-direction: row-reverse;
+        }
+
+        /* hdr-right: EN/AR first, then Cart on the far right */
+        [dir="ltr"] header .hdr-right {
+            flex-direction: row-reverse;
+        }
+
+        /* Nav links order: Home · Best Sellers · Menu · Contact (left to right) */
+        [dir="ltr"] header nav {
+            flex-direction: row-reverse;
+        }
+
+        /* Cart badge flips to right side */
+        [dir="ltr"] .cart-badge {
+            left: auto;
+            right: -7px;
+        }
+
+        /* Hero — swap columns: text left, image right */
+        [dir="ltr"] .hero {
+            direction: ltr;
+        }
+
+        /* POPULAR NOW tag — keep top-left in LTR hero box */
+        [dir="ltr"] .live-tag {
+            right: auto;
+            left: 1rem;
+        }
+
+        /* Hero text block — align left */
+        [dir="ltr"] .hero .fi,
+        [dir="ltr"] .hero-sub,
+        [dir="ltr"] .eyebrow {
+            text-align: left;
+        }
+
+        /* Category headers — align left */
+        [dir="ltr"] .cat-block {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .cat-hdr {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        [dir="ltr"] .cat-block {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .cat-name,
+        [dir="ltr"] .cat-sub {
+            text-align: left;
+        }
+
+        /* Item rows — name left, price right */
+        [dir="ltr"] .irow {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .irow::after {
+            right: auto;
+            left: 0;
+        }
+
+        [dir="ltr"] .itags,
+        [dir="ltr"] .sauce-row {
+            justify-content: flex-start;
+        }
+
+        /* About section — force LTR text direction */
+        [dir="ltr"] .about-p,
+        [dir="ltr"] .about-h {
+            direction: ltr;
+            unicode-bidi: isolate;
+        }
+        [dir="ltr"] .sec-title,
+        [dir="ltr"] .yl,
+        [dir="ltr"] .about-h,
+        [dir="ltr"] .about-p,
+        [dir="ltr"] .stats {
+            text-align: left;
+        }
+
+        [dir="ltr"] .about-grid > div {
+            direction: ltr;
+            text-align: left;
+        }
+
+        [dir="ltr"] .yl {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        /* Modal — LTR overrides */
+        [dir="ltr"] .modal {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .modal-hdr {
+            direction: ltr;
+            flex-direction: row;
+        }
+
+        [dir="ltr"] .modal-hdr h3 {
+            text-align: left;
+        }
+
+        [dir="ltr"] .modal-body {
+            direction: ltr;
+            text-align: left;
+        }
+
+        [dir="ltr"] .mod-section-title,
+        [dir="ltr"] .modal-item-name,
+        [dir="ltr"] .modal-item-desc {
+            text-align: left;
+        }
+
+        [dir="ltr"] .mod-opt {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .mod-opt-left {
+            flex-direction: row;
+        }
+
+        [dir="ltr"] .sauce-opt {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .modal-footer {
+            direction: ltr;
+            flex-direction: row;
+        }
+
+        [dir="ltr"] .modal-qty {
+            direction: ltr;
+        }
+
+        /* Best sellers grid items */
+        [dir="ltr"] .bs-grid .irow {
+            direction: ltr;
+        }
+
+        /* Sticky menu tabs — left to right */
+        [dir="ltr"] .menu-tabs {
+            direction: ltr;
+        }
+
+        /* Cart drawer — slides from right */
+        [dir="ltr"] .drawer {
+            left: auto;
+            right: 0;
+            border-right: none;
+            border-left: 1px solid var(--border);
+            transform: translateX(100%);
+            direction: ltr;
+        }
+
+        [dir="ltr"] .drawer.open {
+            transform: translateX(0);
+        }
+
+        /* Mobile cart badge flips */
+        [dir="ltr"] #mob-count {
+            right: auto !important;
+            left: 14px !important;
+        }
+
+        /* Footer columns — left aligned */
+        [dir="ltr"] footer {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .ftg,
+        [dir="ltr"] .ft-desc,
+        [dir="ltr"] .ft-logo,
+        [dir="ltr"] .ft-g,
+        [dir="ltr"] .ft-ct,
+        [dir="ltr"] .ftl,
+        [dir="ltr"] .ftbot,
+        [dir="ltr"] .ftbot-g {
+            text-align: left;
+            direction: ltr;
+        }
+
+        /* ══ CARD GRID (Instagram-style) ══ */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .75rem;
+        }
+
+        .icard {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color .2s;
+            position: relative;
+        }
+
+        .icard:hover {
+            border-color: rgba(255, 209, 0, .35);
+        }
+
+        .icard-img {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: var(--card2);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .icard-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .35s ease;
+        }
+
+        .icard:hover .icard-img img {
+            transform: scale(1.04);
+        }
+
+        .icard-img .icard-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            background: var(--card2);
+            filter: drop-shadow(0 0 18px rgba(255,209,0,.2));
+        }
+
+        .icard-body {
+            padding: .75rem .85rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .icard-name {
+            font-weight: 700;
+            font-size: .88rem;
+            line-height: 1.3;
+            color: var(--white);
+        }
+
+        .icard-desc {
+            color: var(--gray);
+            font-size: .72rem;
+            line-height: 1.4;
+        }
+
+        .icard-tags {
+            display: flex;
+            gap: .3rem;
+            flex-wrap: wrap;
+            margin-top: .1rem;
+        }
+
+        .icard-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: .5rem;
+            gap: .4rem;
+        }
+
+        .icard-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            color: var(--yellow);
+            letter-spacing: .04em;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .icard-price small {
+            font-size: .75rem;
+            color: var(--gray);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .icard-btn {
+            background: var(--yellow);
+            color: var(--black);
+            border: none;
+            padding: .38rem .75rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: .72rem;
+            letter-spacing: .07em;
+            cursor: pointer;
+            transition: all .2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .icard-btn:hover { background: #fff; }
+
+        .icard-btn.added {
+            background: #00c8a0 !important;
+            color: #fff !important;
+        }
+
+        .icard-pnote {
+            font-size: .65rem;
+            color: var(--gray);
+            margin-top: .15rem;
+        }
+
+        .icard-sauce-row {
+            display: flex;
+            gap: .25rem;
+            flex-wrap: wrap;
+            margin-top: .2rem;
+        }
+
+        @media(max-width: 480px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: .5rem;
+            }
+            .icard-img { height: 140px; }
+            .icard-name { font-size: .8rem; }
+            .icard-btn { font-size: .66rem; padding: .32rem .6rem; }
+        }
+        /* ══ END CARD GRID ══ */
+        /* ══ END LTR OVERRIDES ══ */
+    </style>
+</head>
+
+<body>
+
+    <!-- TICKER -->
+    <div class="ticker">
+        <!-- Arabic ticker -->
+        <div class="ticker-track" id="ticker-ar">
+            <div class="ticker-set">
+                <span>🔥 استمتع بكل قضمة أو استرد فلوسك</span>
+                <span>🍗 كريسبي. صوصي. مليان.</span>
+                <span>📍 نادي الصيد — الدقي · بيك-أب فقط</span>
+                <span>🧀 ماك أند تشيز ميكس — الأكثر طلباً</span>
+                <span>🫓 حواوشي بلدي MENSHOS — لازم تجرب</span>
+            </div>
+            <div class="ticker-set" aria-hidden="true">
+                <span>🔥 استمتع بكل قضمة أو استرد فلوسك</span>
+                <span>🍗 كريسبي. صوصي. مليان.</span>
+                <span>📍 نادي الصيد — الدقي · بيك-أب فقط</span>
+                <span>🧀 ماك أند تشيز ميكس — الأكثر طلباً</span>
+                <span>🫓 حواوشي بلدي MENSHOS — لازم تجرب</span>
+            </div>
+        </div>
+        <!-- English ticker -->
+        <div class="ticker-track" id="ticker-en" style="display:none">
+            <div class="ticker-set" dir="ltr">
+                <span>🔥 Enjoy Every Bite OR Get Your Money Back</span>
+                <span>🍗 Crispy. Saucy. Loaded.</span>
+                <span>📍 El Said Club — Dokki · Pick-Up Only</span>
+                <span>🧀 Mac & Cheese Mix — Most Ordered</span>
+                <span>🫓 MENSHOS Hawawshi Meal — Must Try</span>
+            </div>
+            <div class="ticker-set" dir="ltr" aria-hidden="true">
+                <span>🔥 Enjoy Every Bite OR Get Your Money Back</span>
+                <span>🍗 Crispy. Saucy. Loaded.</span>
+                <span>📍 El Said Club — Dokki · Pick-Up Only</span>
+                <span>🧀 Mac & Cheese Mix — Most Ordered</span>
+                <span>🫓 MENSHOS Hawawshi Meal — Must Try</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <a href="#top" class="logo">MENSHOS</a>
+        <nav>
+            <a href="#top" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+            <a href="#bestsellers" data-ar="Best Sellers" data-en="Best Sellers">Best Sellers</a>
+            <a href="#menu-start" data-ar="المنيو" data-en="Menu">المنيو</a>
+            <a href="#pickup" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
+        </nav>
+        <div class="hdr-right">
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('ar')" id="btn-ar">AR</button>
+                <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+            </div>
+            <button class="cart-btn" onclick="openCart()">
+                🛒 <span data-ar="السلة" data-en="Cart">السلة</span>
+                <span class="cart-badge" id="hdr-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <div id="top"></div>
+    <section class="hero">
+        <div class="fi">
+            <div class="eyebrow" data-ar="نادي الصيد — الدقي · القاهرة" data-en="El Said Club — Dokki · Cairo">نادي
+                الصيد — الدقي · القاهرة</div>
+            <h1>MENS<span class="y">HOS</span><br>CRISPY.<br><span class="y">LOADED.</span></h1>
+            <p class="hero-sub"
+                data-ar="ساندوتشات، برجر، وينجز، باستا، حواوشي، وأكتر — كل حاجة اتعملت عشان الأكل الحقيقي."
+                data-en="Sandwiches, burgers, wings, pasta, hawawshi & more — everything built for real food lovers.">
+                ساندوتشات، برجر، وينجز، باستا، حواوشي، وأكتر — كل حاجة اتعملت عشان الأكل الحقيقي.</p>
+            <div class="btns">
+                <a href="#menu-start" class="btn-y" data-ar="اتفرج على المنيو" data-en="See the Menu">اتفرج على
+                    المنيو</a>
+                <button class="btn-o" onclick="openCart()" data-ar="🛒 السلة" data-en="🛒 Cart">🛒 السلة</button>
+            </div>
+            <div class="hero-phones">
+                <a href="tel:01147324430">📞 01147324430</a>
+                <a href="tel:01117467651">📞 01117467651</a>
+            </div>
+            <div class="pickup-tag" data-ar="🏪 بيك-أب فقط — مفيش ديليفري" data-en="🏪 Pick-Up Only — No Delivery">🏪
+                بيك-أب فقط — مفيش ديليفري</div>
+        </div>
+        <div class="hero-visual">
+            <div style="display:flex;flex-direction:column;gap:.75rem;width:100%;max-width:480px;">
+                <div class="hero-box" style="aspect-ratio:4/3;">
+                    <div class="live-tag">🔥 POPULAR NOW</div>
+                    <img src="images/lf1.jpg" alt="Crispy Chicken Loaded Fries"
+                        style="width:100%;height:100%;object-fit:cover;display:block;"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <span class="float-food" style="display:none">🍟</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <section class="sec sec-alt" id="bestsellers">
+        <div class="fi">
+            <div class="sec-label" data-ar="⭐ الأكثر طلباً دايماً" data-en="⭐ Always Most Ordered">⭐ الأكثر طلباً دايماً
+            </div>
+            <h2 class="sec-title">BEST SELLERS</h2>
+            <div class="yl"></div>
+        </div>
+        <div class="bs-grid" id="bs-grid"></div>
+    </section>
+
+    <!-- MENU NAV -->
+    <div class="menu-nav" id="menu-start">
+        <div class="menu-tabs" id="menu-tabs"></div>
+    </div>
+
+    <!-- MENU CATEGORIES -->
+    <div id="menu-body"></div>
+
+    <!-- ABOUT -->
+    <section class="sec" id="about">
+        <div class="about-grid">
+            <div class="about-img fi">
+                <img src="images/mc5.jpg" alt="Mix Mac & Cheese"
+                    style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span style="font-size:7rem;filter:drop-shadow(0 0 28px rgba(255,209,0,.3));display:none">🍗</span>
+                <div class="gbox">
+                    <div class="gt" data-ar="استمتع بكل قضمة أو استرد فلوسك"
+                        data-en="Enjoy Every Bite OR Get Your Money Back">Enjoy Every Bite OR Get Your Money Back</div>
+                    <div class="gs" data-ar="— ده الوعد بتاعنا —" data-en="— that's our promise —">— ده الوعد بتاعنا —
+                    </div>
+                </div>
+            </div>
+            <div class="fi">
+                <div class="sec-label" data-ar="عن منشوز" data-en="About MENSHOS">عن منشوز</div>
+                <h2 class="about-h" data-ar="أكل حقيقي.<br><span class='y'>بلا مجاملة.</span>"
+                    data-en="Real food.<br><span class='y'>No BS.</span>">أكل حقيقي.<br><span class="y">بلا
+                        مجاملة.</span></h2>
+                <div class="yl"></div>
+                <p class="about-p"
+                    data-ar="منشوز اتعملت لناس بتحب الأكل الحقيقي — كريسبي، صوصي مليان، وبيشبع. من فرايد تشيكن وبرجر لحواوشي وفتة فراخ وماك أند تشيز، كل حاجة اتعملت عشان المذاق الحقيقي."
+                    data-en="MENSHOS was built for people who love real food — crispy, saucy, loaded, satisfying. From fried chicken and burgers to hawawshi, chicken fatteh, and mac & cheese, everything is made for real flavor">
+                    منشوز اتعملت لناس بتحب الأكل الحقيقي — كريسبي، صوصي مليان، وبيشبع.</p>
+                <p class="about-p"
+                    data-ar="إحنا في نادي الصيد — الدقي، وبنقدم بيك-أب فقط عشان نضمن إن كل طلب يوصلك طازج."
+                    data-en="We're at El Said Club — Dokki, offering pick-up only to make sure every order reaches you fresh">
+                    إحنا في نادي الصيد — الدقي، وبنقدم بيك-أب فقط عشان نضمن إن كل طلب يوصلك طازج.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="snum">15+</div>
+                        <div class="slbl" data-ar="كاتيجوري في المنيو" data-en="Menu categories">كاتيجوري في المنيو
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="snum">4</div>
+                        <div class="slbl" data-ar="صوصات أساسية" data-en="Signature sauces">صوصات أساسية</div>
+                    </div>
+                    <div class="stat">
+                        <div class="snum">100%</div>
+                        <div class="slbl" data-ar="ضمان المذاق" data-en="Taste guarantee">ضمان المذاق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PICKUP -->
+    <div class="pickup-sec" id="pickup">
+        <div>
+            <div class="pl-lbl" data-ar="تعالانا" data-en="Come Visit">تعالانا</div>
+            <div class="pl-h">PICK UP ONLY</div>
+            <div class="pl-sub" data-ar="إحنا بيك-أب بس — مفيش ديليفري. اتصل أو واتساب وإحنا نجهزلك طلبك."
+                data-en="Pick-up only — no delivery. Call or WhatsApp us and we'll have your order ready.">إحنا بيك-أب
+                بس — مفيش ديليفري. اتصل أو واتساب وإحنا نجهزلك طلبك.</div>
+            <div class="pickbtns">
+                <a href="tel:01147324430" class="btn-dk">📞 01147324430</a>
+                <a href="tel:01117467651" class="btn-dk">📞 01117467651</a>
+            </div>
+        </div>
+        <div class="pboxes">
+            <div class="pbox"><span class="pbox-icon">📍</span>
+                <div>
+                    <div class="pbox-lbl" data-ar="الموقع" data-en="Location">الموقع</div>
+                    <div class="pbox-val"><a href="https://maps.app.goo.gl/GD3JFvigdbrw57aB8?g_st=aw" target="_blank"
+                            style="color:inherit;text-decoration:none;" data-ar="نادي الصيد — الدقي، القاهرة"
+                            data-en="El Said Club — Dokki, Cairo">نادي الصيد — الدقي، القاهرة 📌</a></div>
+                </div>
+            </div>
+            <div class="pbox"><span class="pbox-icon">📞</span>
+                <div>
+                    <div class="pbox-lbl" data-ar="اتصل بنا" data-en="Call Us">اتصل بنا</div>
+                    <div class="pbox-val">01147324430 / 01117467651</div>
+                </div>
+            </div>
+            <div class="pbox"><span class="pbox-icon">🏪</span>
+                <div>
+                    <div class="pbox-lbl" data-ar="نوع الخدمة" data-en="Service Type">نوع الخدمة</div>
+                    <div class="pbox-val" data-ar="بيك-أب فقط — Takeaway" data-en="Pick-Up Only — Takeaway">بيك-أب فقط —
+                        Takeaway</div>
+                </div>
+            </div>
+            <div class="pbox"><span class="pbox-icon">💬</span>
+                <div>
+                    <div class="pbox-lbl" data-ar="الطلب" data-en="Ordering">الطلب</div>
+                    <div class="pbox-val" data-ar="واتساب أو اتصال مباشر" data-en="WhatsApp or direct call">واتساب أو
+                        اتصال مباشر</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="ftg">
+            <div>
+                <div class="ft-logo">MENSHOS</div>
+                <div class="ft-desc" data-ar="Crispy. Saucy. Loaded. — أكل حقيقي لناس حقيقية. نادي الصيد، الدقي."
+                    data-en="Crispy. Saucy. Loaded. — Real food for real people. El Said Club, Dokki.">Crispy. Saucy.
+                    Loaded. — أكل حقيقي لناس حقيقية. نادي الصيد، الدقي.</div>
+                <div class="ft-g">"ENJOY EVERY BITE OR GET YOUR MONEY BACK" 🔥</div>
+            </div>
+            <div>
+                <div class="ft-ct" data-ar="المنيو" data-en="Menu">المنيو</div>
+                <ul class="ftl">
+                    <li><a href="#bestsellers">⭐ Best Sellers</a></li>
+                    <li><a href="#menu-start" data-ar="فرايد تشيكن" data-en="Fried Chicken">فرايد تشيكن</a></li>
+                    <li><a href="#menu-start" data-ar="ونجز وتندرز" data-en="Wings & Tenders">ونجز وتندرز</a></li>
+                    <li><a href="#menu-start" data-ar="برجر وساندوتشات" data-en="Burgers & Sandwiches">برجر
+                            وساندوتشات</a></li>
+                    <li><a href="#menu-start" data-ar="حواوشي وفتة" data-en="Hawawshi & Fatteh">حواوشي وفتة</a></li>
+                    <li><a href="#menu-start" data-ar="باستا وماك أند تشيز" data-en="Pasta & Mac & Cheese">باستا وماك
+                            أند تشيز</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="ft-ct" data-ar="روابط" data-en="Links">روابط</div>
+                <ul class="ftl">
+                    <li><a href="#top" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    <li><a href="#about" data-ar="عن منشوز" data-en="About">عن منشوز</a></li>
+                    <li><a href="#pickup" data-ar="الموقع" data-en="Location">الموقع</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="ft-ct" data-ar="تواصل" data-en="Connect">تواصل</div>
+                <ul class="ftl">
+                    <li><a href="tel:01147324430">📞 01147324430</a></li>
+                    <li><a href="tel:01117467651">📞 01117467651</a></li>
+                    <li><a href="https://maps.app.goo.gl/GD3JFvigdbrw57aB8?g_st=aw" target="_blank">📍 <span
+                                data-ar="نادي الصيد — الدقي" data-en="El Said Club — Dokki">نادي الصيد —
+                                الدقي</span></a></li>
+                    <li><a href="https://www.instagram.com/menshoss?igsh=MWpibzdyajBzcW9mMg%3D%3D" target="_blank">📸
+                            Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@menshos_?_r=1&_t=ZS-94f9nc9ZtNl" target="_blank">🎵 TikTok</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="ftbot">
+            <div data-ar="© MENSHOS. All rights reserved. — Proudly local. نادي الصيد، الدقي." data-en="© MENSHOS. All rights reserved. — Proudly local. El Said Club, Dokki">© MENSHOS. All rights reserved. — Proudly local. نادي الصيد، الدقي.</div>
+            <div class="ftbot-g">ENJOY EVERY BITE OR GET YOUR MONEY BACK 🔥</div>
+        </div>
+    </footer>
+
+    <!-- MOBILE BAR -->
+    <div class="mob-bar">
+        <a href="tel:01147324430" class="mob-btn yel"><span class="mi">📞</span><span data-ar="اتصل"
+                data-en="Call">اتصل</span></a>
+        <button class="mob-btn grn" onclick="openWA()" style="color:var(--green)"><span class="mi">💬</span><span
+                data-ar="واتساب" data-en="WhatsApp">واتساب</span></button>
+        <a href="#menu-start" class="mob-btn"><span class="mi">🍗</span><span data-ar="المنيو"
+                data-en="Menu">المنيو</span></a>
+        <button class="mob-btn" onclick="openCart()">
+            <span class="mi">🛒</span><span data-ar="السلة" data-en="Cart">السلة</span>
+            <span class="cart-badge" id="mob-count"
+                style="position:absolute;top:4px;right:14px;font-size:.55rem;">0</span>
+        </button>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+    <!-- CART DRAWER -->
+    <div class="drawer" id="drawer">
+        <div class="drw-hdr">
+            <h2>🛒 <span data-ar="طلبك" data-en="Your Order">طلبك</span></h2>
+            <button class="drw-close" onclick="closeCart()">✕</button>
+        </div>
+        <div class="drw-body" id="cart-list"></div>
+        <div class="drw-foot">
+            <div class="drw-total">
+                <div class="drw-total-lbl" data-ar="الإجمالي" data-en="Total">الإجمالي</div>
+                <div class="drw-total-val"><span id="cart-total">0</span> EGP</div>
+            </div>
+            <button class="drw-clear" id="clear-btn" onclick="clearCart()">🗑️ <span data-ar="مسح الكل"
+                    data-en="Clear All">مسح الكل</span></button>
+            <div class="time-box">
+                <label data-ar="⏰ وقت الاستلام (بيك-أب)" data-en="⏰ Pickup Time">⏰ وقت الاستلام (بيك-أب)</label>
+                <input type="text" id="pickup-time" data-ar data-ar-placeholder="مثال: الساعة 7 مساءً أو 19:30"
+                    data-en-placeholder="e.g. 7:30 PM or 19:30" placeholder="مثال: الساعة 7 مساءً أو 19:30" />
+            </div>
+
+            <!-- ══ PAYMENT METHOD SELECTOR — NEW ══ -->
+            <div class="pay-selector">
+                <span class="pay-selector-label" data-ar="💳 طريقة الدفع" data-en="💳 Payment Method">💳 طريقة الدفع</span>
+                <div class="pay-opts">
+                    <div class="pay-opt selected" id="pay-cash" onclick="selectPayment('cash')">
+                        <div class="pay-opt-radio"></div>
+                        <span class="pay-opt-text" data-ar="💵 كاش عند الاستلام" data-en="💵 Cash on Pickup">💵 كاش عند الاستلام</span>
+                    </div>
+                    <div class="pay-opt" id="pay-instapay" onclick="selectPayment('instapay')">
+                        <div class="pay-opt-radio"></div>
+                        <span class="pay-opt-text" data-ar="📲 Instapay / Telda" data-en="📲 Instapay / Telda">📲 Instapay / Telda</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instapay instructions — shown only when Instapay selected -->
+            <div class="instapay-info" id="instapay-info">
+                <div class="instapay-info-title" data-ar="📲 تعليمات الدفع بـ Instapay / Telda" data-en="📲 Instapay / Telda Payment Instructions">📲 تعليمات الدفع بـ Instapay / Telda</div>
+                <div class="instapay-number">01012543514</div>
+                <ul class="instapay-steps">
+                    <li data-ar="افتح تطبيق Instapay أو Telda" data-en="Open the Instapay or Telda app">افتح تطبيق Instapay أو Telda</li>
+                    <li data-ar="حوّل المبلغ الإجمالي بالظبط على الرقم ده" data-en="Transfer the exact total amount to this number">حوّل المبلغ الإجمالي بالظبط على الرقم ده</li>
+                    <li data-ar="اكتب اسمك في خانة الملاحظة عشان نعرف طلبك" data-en="Write your name in the note so we can identify your order">اكتب اسمك في خانة الملاحظة عشان نعرف طلبك</li>
+                    <li data-ar="ابعت الطلب على واتساب وإحنا هنأكد الاستلام" data-en="Send your order on WhatsApp and we'll confirm receipt">ابعت الطلب على واتساب وإحنا هنأكد الاستلام</li>
+                </ul>
+                <div class="instapay-warn" data-ar="⚠️ الطلب بيتجهز بس بعد تأكيد الكاشير للدفعة" data-en="⚠️ Order is prepared only after cashier confirms the payment">⚠️ الطلب بيتجهز بس بعد تأكيد الكاشير للدفعة</div>
+                <div class="instapay-screenshot-warn" data-ar="📸 مهم: خد سكرين شوت للتحويل وابعته مع طلبك على الواتساب — من غير السكرين شوت مش هنقدر نأكد الطلب" data-en="📸 Important: Take a screenshot of the transfer and send it with your order on WhatsApp — without it we cannot confirm your order">📸 مهم: خد سكرين شوت للتحويل وابعته مع طلبك على الواتساب — من غير السكرين شوت مش هنقدر نأكد الطلب</div>
+            </div>
+
+            <!-- ══ SERVICE TYPE SELECTOR ══ -->
+            <div class="pickup-loc-selector">
+                <span class="pay-selector-label" data-ar="🚀 نوع الخدمة" data-en="🚀 Service Type">🚀 نوع الخدمة</span>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.6rem;">
+                    <div class="pay-opt selected" id="svc-pickup" onclick="selectService('pickup')">
+                        <div class="pay-opt-radio"></div>
+                        <span class="pay-opt-text" style="font-size:.72rem;" data-ar="🚶 بيك-أب" data-en="🚶 Pick-Up">🚶 بيك-أب</span>
+                    </div>
+                    <div class="pay-opt" id="svc-inside" onclick="selectService('inside')">
+                        <div class="pay-opt-radio"></div>
+                        <span class="pay-opt-text" style="font-size:.72rem;" data-ar="🏌️ داخل النادي" data-en="🏌️ Inside Club">🏌️ داخل النادي</span>
+                    </div>
+                    <div class="pay-opt" id="svc-outside" onclick="selectService('outside')">
+                        <div class="pay-opt-radio"></div>
+                        <span class="pay-opt-text" style="font-size:.72rem;" data-ar="🚗 خارج النادي" data-en="🚗 Outside Club">🚗 خارج النادي</span>
+                    </div>
+                </div>
+
+                <!-- Pick-Up sub-options -->
+                <div id="svc-detail-pickup">
+                    <div style="color:var(--gray);font-size:.68rem;margin-bottom:.4rem;" data-ar="اختار مكان الاستلام:" data-en="Choose pickup point:">اختار مكان الاستلام:</div>
+                    <div class="pay-opts" style="margin-bottom:.5rem;">
+                        <div class="pay-opt selected" id="loc-restaurant" onclick="selectPickupPoint('restaurant')">
+                            <div class="pay-opt-radio"></div>
+                            <span class="pay-opt-text" style="font-size:.74rem;" data-ar="🍽️ المطعم مباشرة" data-en="🍽️ At the Restaurant">🍽️ المطعم مباشرة</span>
+                        </div>
+                        <div class="pay-opt" id="loc-custom-gate" onclick="selectPickupPoint('custom')">
+                            <div class="pay-opt-radio"></div>
+                            <span class="pay-opt-text" style="font-size:.74rem;" data-ar="🚪 حدد البوابة" data-en="🚪 Specify Gate">🚪 حدد البوابة</span>
+                        </div>
+                    </div>
+                    <div id="custom-gate-input" style="display:none;margin-bottom:.5rem;">
+                        <input type="text" id="custom-gate-val" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;" dir="rtl" placeholder="مثال: Gate 3 / البوابة 3" />
+                    </div>
+                    <input type="text" id="pickup-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
+                    <input type="tel" id="pickup-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;" dir="rtl" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
+                </div>
+
+                <!-- Inside Club sub-options -->
+                <div id="svc-detail-inside" style="display:none;">
+                    <div style="color:var(--gray);font-size:.68rem;margin-bottom:.4rem;" data-ar="📍 مكانك داخل النادي (ملعب، منطقة، إلخ)" data-en="📍 Your location inside the club (field, area, etc.)">📍 مكانك داخل النادي (ملعب، منطقة، إلخ)</div>
+                    <input type="text" id="inside-location" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="مثال: ملعب التنس، الحديقة، المسبح" data-en-placeholder="e.g. Tennis court, Garden, Pool area" placeholder="مثال: ملعب التنس، الحديقة، المسبح" />
+                    <input type="text" id="inside-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
+                    <input type="tel" id="inside-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;" dir="rtl" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
+                </div>
+
+                <!-- Outside Club sub-options -->
+                <div id="svc-detail-outside" style="display:none;">
+                    <div style="color:var(--yellow);font-size:.68rem;margin-bottom:.4rem;font-weight:700;" data-ar="⚠️ ديليفري خارج النادي — السعر يتحدد حسب المسافة وهيتواصل معاك الكاشير" data-en="⚠️ Delivery outside club — price depends on distance, cashier will contact you">⚠️ ديليفري خارج النادي — السعر يتحدد حسب المسافة وهيتواصل معاك الكاشير</div>
+                    <input type="text" id="outside-address" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="عنوانك بالتفصيل" data-en-placeholder="Your full address" placeholder="عنوانك بالتفصيل" />
+                    <input type="text" id="outside-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
+                    <input type="tel" id="outside-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;" dir="rtl" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
+                </div>
+            </div>
+            <!-- ══ END SERVICE TYPE SELECTOR ══ -->
+
+            <!-- ══ END PAYMENT SELECTOR ══ -->
+
+            <button class="wa-btn" onclick="sendOrder()" id="wa-btn">
+                <span style="font-size:1.2rem">💬</span>
+                <span data-ar="أرسل الطلب على واتساب" data-en="Send Order on WhatsApp">أرسل الطلب على واتساب</span>
+            </button>
+            <div class="cart-note" data-ar="💡 هيتفتح واتساب تلقائياً مع تفاصيل طلبك · MENSHOS نادي الصيد، الدقي"
+                data-en="💡 WhatsApp will open with your full order details · MENSHOS El Said Club, Dokki">💡 هيتفتح
+                واتساب تلقائياً مع تفاصيل طلبك · MENSHOS نادي الصيد، الدقي</div>
+        </div>
+    </div>
+
+    <!-- CUSTOMIZATION MODAL -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal" id="modal">
+            <div class="modal-hdr">
+                <h3 id="modal-title">Customize</h3>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <div class="modal-total" id="modal-total">0 EGP</div>
+                <button class="modal-add-btn" onclick="confirmAdd()" id="modal-add-btn">
+                    <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+        // ═══════════════════════ LANGUAGE ═══════════════════════
+        let lang = 'ar';
+        function setLang(l) {
+            sessionStorage.setItem('menshos_lang', l);
+            sessionStorage.setItem('menshos_cart', JSON.stringify(cart));
+            sessionStorage.setItem('menshos_payment', selectedPayment);
+            sessionStorage.setItem('menshos_service', selectedService);
+            location.reload();
+        }
+
+        // ═══════════════════════ MENU DATA ═══════════════════════
+        const MENU = [
+            {
+                id: 'chicken', icon: '🍗',
+                name: { ar: 'فرايد تشيكن', en: 'Fried Chicken' },
+                sub: { ar: 'Fried Chicken', en: 'Crispy chicken sandwiches' },
+                items: [
+                    { id: 'fc1', name: { ar: 'فرايد تشيكن ساندوتش', en: 'Fried Chicken Sandwich' }, desc: { ar: 'صدور فراخ كريسبي · خس · طماطم · بصل', en: 'Crispy chicken breast · lettuce · tomato · onion' }, price: 120, sauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Buffalo بافلو'], removables: ['خس / Lettuce', 'طماطم / Tomato', 'بصل / Onion'], extras: ['صوص تكساس إضافي / Extra Texas Sauce +10', 'صوص بافلو إضافي / Extra Buffalo Sauce +10', 'صوص باربكيو إضافي / Extra BBQ Sauce +10', 'صوص رانش إضافي / Extra Ranch Sauce +10', 'جبنة أمريكان / American Cheese +15', 'هالبينو / Jalapeño +10'], tags: ['bs'] },
+                    { id: 'fc2', name: { ar: 'فرايد تشيكن تشيز ساندوتش', en: 'Fried Chicken Cheese Sandwich' }, desc: { ar: 'صدور فراخ كريسبي · خس · طماطم · بصل · صوص شيدر', en: 'Crispy chicken breast · lettuce · tomato · onion · cheddar sauce' }, price: 120, removables: ['خس / Lettuce', 'طماطم / Tomato', 'بصل / Onion', 'صوص شيدر / Cheddar Sauce'], extras: ['موتزاريلا / Mozzarella +15', 'هالبينو / Jalapeño +10'], tags: [] },
+                ]
+            },
+            {
+                id: 'wings', icon: '🍖',
+                name: { ar: 'تشيكن ونجز وتندرز', en: 'Wings & Tenders' },
+                sub: { ar: 'Wings & Tenders', en: '6 pieces per order' },
+                items: [
+                    { id: 'w1', name: { ar: 'باربكيو فرايد تشيكن ونجز', en: 'BBQ Fried Chicken Wings' }, desc: { ar: '6 قطع', en: '6 pieces' }, price: 95, sauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Buffalo بافلو'], extras: ['صوص تكساس إضافي / Extra Texas Sauce +10', 'صوص بافلو إضافي / Extra Buffalo Sauce +10', 'صوص باربكيو إضافي / Extra BBQ Sauce +10', 'صوص رانش إضافي / Extra Ranch Sauce +10'], tags: [] },
+                    { id: 'w2', name: { ar: 'بافلو فرايد تشيكن ونجز', en: 'Buffalo Fried Chicken Wings' }, desc: { ar: '6 قطع', en: '6 pieces' }, price: 95, sauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Buffalo بافلو'], extras: ['صوص تكساس إضافي / Extra Texas Sauce +10', 'صوص بافلو إضافي / Extra Buffalo Sauce +10', 'صوص باربكيو إضافي / Extra BBQ Sauce +10', 'صوص رانش إضافي / Extra Ranch Sauce +10'], tags: ['spicy'] },
+                    { id: 'w3', name: { ar: 'ديناميت فرايد تشيكن ونجز', en: 'Dynamite Fried Chicken Wings' }, desc: { ar: '6 قطع', en: '6 pieces' }, price: 95, sauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Buffalo بافلو'], extras: ['صوص تكساس إضافي / Extra Texas Sauce +10', 'صوص بافلو إضافي / Extra Buffalo Sauce +10', 'صوص باربكيو إضافي / Extra BBQ Sauce +10', 'صوص رانش إضافي / Extra Ranch Sauce +10'], tags: ['spicy', 'new'] },
+                    { id: 'w4', name: { ar: 'كرسبي تشيكن ونجز', en: 'Crispy Chicken Wings' }, desc: { ar: '6 قطع', en: '6 pieces' }, price: 95, sauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Buffalo بافلو'], extras: ['صوص تكساس إضافي / Extra Texas Sauce +10', 'صوص بافلو إضافي / Extra Buffalo Sauce +10', 'صوص باربكيو إضافي / Extra BBQ Sauce +10', 'صوص رانش إضافي / Extra Ranch Sauce +10'], tags: [] },
+                    { id: 't1', name: { ar: '3 قطعة تشيكن تندرز', en: '3-Piece Chicken Tenders' }, desc: { ar: 'مع فرايز', en: 'With fries' }, price: 95, sauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Buffalo بافلو'], extras: ['قطعة إضافية / Extra Piece +25'], tags: [] },
+                    { id: 't2', name: { ar: '4 قطع تشيكن تندرز', en: '4-Piece Chicken Tenders' }, desc: { ar: 'مع فرايز', en: 'With fries' }, price: 120, sauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Buffalo بافلو'], extras: ['قطعة إضافية / Extra Piece +25'], tags: [] },
+                ]
+            },
+            {
+                id: 'burgers', icon: '🍔',
+                name: { ar: 'برجر', en: 'Burgers' },
+                sub: { ar: 'Burgers', en: '' },
+                items: [
+                    { id: 'b1', name: { ar: 'أولد سكول برجر', en: 'Old School Burger' }, desc: { ar: 'برجر · خس · طاطم · بصل · كاتشب · مايونيز', en: 'Burger patty · lettuce · tomato · onion · ketchup · mayo' }, price: 110, removables: ['خس / Lettuce', 'طماطم / Tomato', 'بصل / Onion', 'كاتشب / Ketchup', 'مايونيز / Mayo'], extras: ['باتي إضافية / Extra Patty +35', 'جبنة / Cheese +15', 'هالبينو / Jalapeño +10'], tags: [] },
+                    { id: 'b2', name: { ar: 'تكساس برجر', en: 'Texas Burger' }, desc: { ar: 'برجر · خس · طاطم · بصل · صوص تكساس', en: 'Burger patty · lettuce · tomato · onion · Texas sauce' }, price: 110, removables: ['خس / Lettuce', 'طماطم / Tomato', 'بصل / Onion'], extras: ['باتي إضافية / Extra Patty +35', 'جبنة / Cheese +15'], tags: [] },
+                    { id: 'b3', name: { ar: 'باربكيو برجر', en: 'BBQ Burger' }, desc: { ar: 'برجر · مشروم · بصل مكرمل · خس · صوص باربكيو', en: 'Burger patty · mushroom · caramelized onion · lettuce · BBQ sauce' }, price: 140, removables: ['مشروم / Mushroom', 'بصل مكرمل / Caramelized Onion', 'خس / Lettuce'], extras: ['باتي إضافية / Extra Patty +35', 'جبنة / Cheese +15'], tags: [] },
+                ]
+            },
+            {
+                id: 'sandwiches', icon: '🥪',
+                name: { ar: 'ساندوتشات', en: 'Sandwiches' },
+                sub: { ar: 'سوري أو فرنساوي', en: 'Soury or French bread' },
+                items: [
+                    { id: 's1', name: { ar: 'جريلد تشيكن ساندوتش', en: 'Grilled Chicken Sandwich' }, desc: { ar: 'صدور فراخ مشوية · أمريكان تشيز · خس · طماطم · مايونيز', en: 'Grilled chicken breast · American cheese · lettuce · tomato · mayo' }, price: 100, removables: ['أمريكان تشيز / American Cheese', 'خس / Lettuce', 'طماطم / Tomato', 'مايونيز / Mayo'], extras: ['صوص تكساس إضافي / Extra Texas Sauce +10', 'صوص بافلو إضافي / Extra Buffalo Sauce +10', 'صوص باربكيو إضافي / Extra BBQ Sauce +10', 'صوص رانش إضافي / Extra Ranch Sauce +10', 'هالبينو / Jalapeño +10'], tags: [] },
+                    { id: 's2', name: { ar: 'كفتة ساندوتش', en: 'Kofta Sandwich' }, desc: { ar: 'كفتة مشوية · طحينة · طماطم · بصل', en: 'Grilled kofta · tahini · tomato · onion' }, price: 100, removables: ['طحينة / Tahini', 'طماطم / Tomato', 'بصل / Onion'], extras: ['قطعة كفتة إضافية / Extra Kofta +35'], tags: [] },
+                    { id: 's3', name: { ar: 'شيش طاووق ساندوتش', en: 'Shish Tawook Sandwich' }, desc: { ar: 'فراخ شيش · فلفل ألوان · بصل · صوص تكساس', en: 'Shish chicken · colored peppers · onion · Texas sauce' }, price: 95, removables: ['فلفل ألوان / Peppers', 'بصل / Onion'], extras: ['صوص تكساس إضافي / Extra Texas Sauce +10', 'صوص بافلو إضافي / Extra Buffalo Sauce +10', 'صوص باربكيو إضافي / Extra BBQ Sauce +10', 'صوص رانش إضافي / Extra Ranch Sauce +10'], tags: [] },
+                    { id: 's4', name: { ar: 'كريسبي تشيكن ساندوتش', en: 'Crispy Chicken Sandwich' }, desc: { ar: 'فراخ كريسبي · خس · طماطم · صوص رانش', en: 'Crispy chicken · lettuce · tomato · ranch sauce' }, price: 95, removables: ['خس / Lettuce', 'طماطم / Tomato'], extras: ['هالبينو / Jalapeño +10', 'جبنة / Cheese +15'], tags: [] },
+                    { id: 's5', name: { ar: 'تشيكن فاهيتا ساندوتش', en: 'Chicken Fajita Sandwich' }, desc: { ar: 'صدور فراخ · بصل · فلفل ألوان · صوص تكساس', en: 'Chicken breast · onion · colored peppers · Texas sauce' }, price: 95, removables: ['بصل / Onion', 'فلفل ألوان / Peppers'], extras: ['صوص تكساس إضافي / Extra Texas Sauce +10', 'صوص بافلو إضافي / Extra Buffalo Sauce +10', 'صوص باربكيو إضافي / Extra BBQ Sauce +10', 'صوص رانش إضافي / Extra Ranch Sauce +10'], tags: [] },
+                    { id: 's6', name: { ar: 'تشيكن بانيه (Pane) ساندوتش', en: 'Chicken Pane Sandwich' }, desc: { ar: 'صدور فراخ بانيه · خس · طماطم · مايونيز', en: 'Pane chicken breast · lettuce · tomato · mayo' }, price: 100, removables: ['خس / Lettuce', 'طماطم / Tomato', 'مايونيز / Mayo'], extras: ['جبنة / Cheese +15'], tags: [] },
+                    { id: 's7', name: { ar: 'هوت دوج مكسيكان', en: 'Mexican Hot Dog' }, desc: { ar: 'هوت دوج · فلفل ألوان · بصل · صوص تكساس', en: 'Hot dog · colored peppers · onion · Texas sauce' }, price: 85, removables: ['فلفل ألوان / Peppers', 'بصل / Onion'], extras: ['جبنة / Cheese +15'], tags: [] },
+                ]
+            },
+            {
+                id: 'loaded', icon: '🍟',
+                name: { ar: 'لودد فرايز', en: 'Loaded Fries' },
+                sub: { ar: 'صغير / كبير', en: 'Small / Large' },
+                items: [
+                    { id: 'lf1', name: { ar: 'لودد فرايز كريسبي تشيكن', en: 'Crispy Chicken Loaded Fries' }, desc: { ar: 'قطع فراخ كريسبي · خس · طماطم · بصل · 3 صوصات اختيارك', en: 'Crispy chicken pieces · lettuce · tomato · onion · choose 3 sauces' }, price: 100, priceNote: { ar: 'صغير 100 / كبير 130 EGP', en: 'Small 100 / Large 130 EGP' }, sizeOptions: true, multiSauceOptions: true, freeSauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Sweet Chilli سويت شيلي', 'Buffalo بافلو', 'Garlic Mayo جارلك مايو'], paidSauces: ['Cheddar شيدر +15'], removables: ['خس / Lettuce', 'طماطم / Tomato', 'بصل / Onion'], extras: [], tags: ['bs'] },
+                    { id: 'lf2', name: { ar: 'لودد فرايز برجر', en: 'Burger Loaded Fries' }, desc: { ar: 'برجر · خس · طماطم · بصل · 3 صوصات اختيارك', en: 'Burger · lettuce · tomato · onion · choose 3 sauces' }, price: 100, priceNote: { ar: 'صغير 100 / كبير 130 EGP', en: 'Small 100 / Large 130 EGP' }, sizeOptions: true, multiSauceOptions: true, freeSauces: ['Ranch رانش', 'Texas تكساس', 'BBQ باربكيو', 'Sweet Chilli سويت شيلي', 'Buffalo بافلو', 'Garlic Mayo جارلك مايو'], paidSauces: ['Cheddar شيدر +15'], removables: ['خس / Lettuce', 'طماطم / Tomato', 'بصل / Onion'], extras: [], tags: [] },
+                ]
+            },
+            {
+                id: 'wawshi', icon: '🫓',
+                name: { ar: 'حواوشي', en: 'Hawawshi' },
+                sub: { ar: '', en: 'Egyptian-style meat bread' },
+                items: [
+                    { id: 'hw1', name: { ar: 'رغيف حواوشي بلدي وسط', en: 'Medium Hawawshi Bread' }, desc: { ar: '', en: '' }, price: 40, tags: [] },
+                    { id: 'hw2', name: { ar: 'رغيف حواوشي بلدي كبير', en: 'Large Hawawshi Bread' }, desc: { ar: 'طحينة · طرشي', en: 'Tahini · pickles' }, price: 80, removables: ['طحينة / Tahini', 'طرشي / Pickles'], tags: [] },
+                    { id: 'hw3', name: { ar: 'وجبة حواوشي بلدي', en: 'Hawawshi Baladi Meal' }, desc: { ar: 'رغيف حواوشي · فرايز · طحينة · طرشي · كاتشب', en: 'Hawawshi bread · fries · tahini · pickles · ketchup' }, price: 100, removables: ['طحينة / Tahini', 'طرشي / Pickles', 'كاتشب / Ketchup'], extras: ['بطاطس إضافية / Extra Fries +25'], tags: ['bs'] },
+                    { id: 'hw4', name: { ar: 'وجبة حواوشي MENSHOS', en: 'MENSHOS Hawawshi Meal' }, desc: { ar: 'رغيف حواوشي + رغيف وسط · فرايز · طحينة · طرشي · كاتشب', en: 'Large + medium hawawshi bread · fries · tahini · pickles · ketchup' }, price: 130, removables: ['طحينة / Tahini', 'طرشي / Pickles', 'كاتشب / Ketchup'], extras: ['بطاطس إضافية / Extra Fries +25'], tags: ['bs'] },
+                    { id: 'hw5', name: { ar: 'وجبة حواوشي دبل', en: 'Double Hawawshi Meal' }, desc: { ar: '2 رغيف كبير · فرايز · 2 طحينة · كاتشب · 2 طرشي', en: '2 large breads · fries · 2 tahini · ketchup · 2 pickles' }, price: 180, removables: ['طحينة / Tahini', 'طرشي / Pickles', 'كاتشب / Ketchup'], tags: [] },
+                ]
+            },
+            {
+                id: 'main', icon: '🍽️',
+                name: { ar: 'وجبات رئيسية', en: 'Main Meals' },
+                sub: { ar: 'كل الوجبات مع أرز + فرايز + خضار أو باستا', en: 'All meals with rice + fries + veggies or pasta' },
+                items: [
+                    { id: 'm1', name: { ar: 'جريلد تشيكن Diet Meal', en: 'Grilled Chicken Diet Meal' }, desc: { ar: 'أرز بسمتي · خضار سوتيه', en: 'Basmati rice · sautéed veggies' }, price: 185, extras: ['أرز إضافي / Extra Rice +25', 'خضار سوتيه إضافية / Extra Veggies +50'], tags: [] },
+                    { id: 'm2', name: { ar: 'جريلد تشيكن مشروم', en: 'Grilled Chicken Mushroom' }, desc: { ar: 'أرز بسمتي · فرايز · خضار سوتيه أو باستا', en: 'Basmati rice · fries · sautéed veggies or pasta' }, price: 185, sideOptions: true, tags: [] },
+                    { id: 'm3', name: { ar: 'جريلد تشيكن ليمون صوص', en: 'Grilled Chicken Lemon Sauce' }, desc: { ar: 'أرز بسمتي · فرايز · خضار سوتيه أو باستا', en: 'Basmati rice · fries · sautéed veggies or pasta' }, price: 185, sideOptions: true, tags: [] },
+                    { id: 'm4', name: { ar: 'تشيكن بانيه (Pane) وجبة', en: 'Chicken Pane Meal' }, desc: { ar: 'أرز بسمتي · فرايز · خضار سوتيه أو باستا', en: 'Basmati rice · fries · sautéed veggies or pasta' }, price: 185, sideOptions: true, tags: [] },
+                    { id: 'm5', name: { ar: 'كريسبي تشيكن وجبة', en: 'Crispy Chicken Meal' }, desc: { ar: 'أرز بسمتي · فرايز · خضار سوتيه أو باستا', en: 'Basmati rice · fries · sautéed veggies or pasta' }, price: 185, sideOptions: true, tags: [] },
+                    { id: 'm6', name: { ar: 'فاهيتا فراخ وجبة', en: 'Chicken Fajita Meal' }, desc: { ar: 'أرز بسمتي · فرايز · خضار سوتيه أو باستا', en: 'Basmati rice · fries · sautéed veggies or pasta' }, price: 185, sideOptions: true, tags: [] },
+                    { id: 'm7', name: { ar: 'شيش طاووق وجبة', en: 'Shish Tawook Meal' }, desc: { ar: 'أرز بسمتي · فرايز · خضار سوتيه أو باستا', en: 'Basmati rice · fries · sautéed veggies or pasta' }, price: 185, sideOptions: true, tags: [] },
+                    { id: 'm8', name: { ar: 'كفتة مشوية وجبة', en: 'Grilled Kofta Meal' }, desc: { ar: 'أرز بسمتي · فرايز · خضار سوتيه أو باستا', en: 'Basmati rice · fries · sautéed veggies or pasta' }, price: 185, sideOptions: true, tags: [] },
+                    { id: 'm9', name: { ar: 'ميكس جريل', en: 'Mix Grill' }, desc: { ar: 'صدور تشيكن + كفتة مشوية · فرايز · أرز أبيض · خضار سوتيه · شيش طاووق', en: 'Chicken breast + grilled kofta · fries · white rice · sautéed veggies · shish tawook' }, price: 225, sideOptions: true, tags: ['new'] },
+                ]
+            },
+            {
+                id: 'fatta', icon: '🍚',
+                name: { ar: 'فتة فراخ', en: 'Chicken Fatteh' },
+                sub: { ar: '', en: '' },
+                items: [
+                    { id: 'ft1', name: { ar: 'فتة فراخ جريلد', en: 'Grilled Chicken Fatteh' }, desc: { ar: 'صدور فراخ مشوية بالتوابل اللبنانية · أرز بسمتي · فلفل ألوان · بصل · عيش فته · صوص رانش', en: 'Lebanese-spiced grilled chicken · basmati rice · colored peppers · onion · pita chips · ranch sauce' }, price: 135, removables: ['فلفل ألوان / Peppers', 'بصل / Onion'], extras: ['أرز إضافي / Extra Rice +25'], tags: ['bs'] },
+                    { id: 'ft2', name: { ar: 'فتة فراخ كريسبي', en: 'Crispy Chicken Fatteh' }, desc: { ar: 'فراخ كريسبي · أرز بسمتي · عيش فته · صوص رانش', en: 'Crispy chicken · basmati rice · pita chips · ranch sauce' }, price: 135, extras: ['أرز إضافي / Extra Rice +25'], tags: ['bs'] },
+                ]
+            },
+            {
+                id: 'quesadilla', icon: '🫔',
+                name: { ar: 'كاساديا', en: 'Quesadilla' },
+                sub: { ar: '', en: '' },
+                items: [
+                    { id: 'q1', name: { ar: 'كاساديا', en: 'Quesadilla' }, desc: { ar: 'صدور فراخ · جبن شيدر أحمر وأصفر · موتزاريلا · فلفل ألوان · بصل · عيش تورتيلا', en: 'Chicken breast · red & yellow cheddar · mozzarella · colored peppers · onion · tortilla bread' }, price: 135, removables: ['فلفل ألوان / Peppers', 'بصل / Onion', 'موتزاريلا / Mozzarella'], extras: ['جبنة إضافية / Extra Cheese +15'], tags: ['bs'] },
+                ]
+            },
+            {
+                id: 'pasta', icon: '🍝',
+                name: { ar: 'باستا', en: 'Pasta' },
+                sub: { ar: '', en: '' },
+                items: [
+                    { id: 'pa1', name: { ar: 'باستا وايت صوص سادة', en: 'Plain White Sauce Pasta' }, desc: { ar: 'مكرونه بنا · وايت صوص', en: 'Penne pasta · white sauce' }, price: 70, extras: ['تشيكن / Chicken +35', 'مشروم / Mushroom +20', 'بيروني / Pepperoni +15'], tags: [] },
+                    { id: 'pa2', name: { ar: 'الفريدو تشيكن باستا', en: 'Alfredo Chicken Pasta' }, desc: { ar: 'مكرونه بنا · صدور فراخ · مشروم · وايت صوص', en: 'Penne pasta · chicken breast · mushroom · white sauce' }, price: 125, removables: ['مشروم / Mushroom'], extras: ['موتزاريلا / Mozzarella +15'], tags: [] },
+                    { id: 'pa3', name: { ar: 'كريسبي تشيكن باستا', en: 'Crispy Chicken Pasta' }, desc: { ar: 'مكرونه بنا · فراخ كريسبي · وايت صوص بالتاويل المكسيكي', en: 'Penne pasta · crispy chicken · white sauce with Mexican spice' }, price: 110, extras: ['موتزاريلا / Mozzarella +15'], tags: [] },
+                    { id: 'pa4', name: { ar: 'نيجرسكو جريلد تشيكن (Negresco)', en: 'Negresco Grilled Chicken' }, desc: { ar: 'مكرونه بنا · فراخ جريلد · وايت صوص · موتزاريلا', en: 'Penne pasta · grilled chicken · white sauce · mozzarella' }, price: 125, removables: ['موتزاريلا / Mozzarella'], tags: [] },
+                    { id: 'pa5', name: { ar: 'نيجرسكو كريسبي تشيكن (Negresco)', en: 'Negresco Crispy Chicken' }, desc: { ar: 'مكرونه بنا · فراخ كريسبي · وايت صوص · موتزاريلا', en: 'Penne pasta · crispy chicken · white sauce · mozzarella' }, price: 125, removables: ['موتزاريلا / Mozzarella'], tags: [] },
+                    { id: 'pa6', name: { ar: 'أرابياتا', en: 'Arrabbiata' }, desc: { ar: 'مكرونه بنا · فلفل ألوان · زيتون · ريد صوص', en: 'Penne pasta · colored peppers · olives · red sauce' }, price: 70, removables: ['زيتون / Olives', 'فلفل ألوان / Peppers'], extras: ['تشيكن / Chicken +35'], tags: [] },
+                    { id: 'pa7', name: { ar: 'بولونيز', en: 'Bolognese' }, desc: { ar: 'سباجيتي · لحمة مفرومة · ريد صوص', en: 'Spaghetti · minced meat · red sauce' }, price: 125, tags: [] },
+                ]
+            },
+            {
+                id: 'mac', icon: '🧀',
+                name: { ar: 'ماك أند تشيز', en: 'Mac & Cheese' },
+                sub: { ar: '', en: '' },
+                items: [
+                    { id: 'mc1', name: { ar: 'ماك أند تشيز سادة', en: 'Plain Mac & Cheese' }, desc: { ar: 'مكرونه إلبو · وايت صوص · صوص شيدر', en: 'Elbow pasta · white sauce · cheddar sauce' }, price: 80, extras: ['تشيكن / Chicken +35', 'بيروني / Pepperoni +15', 'موتزاريلا / Mozzarella +15'], tags: [] },
+                    { id: 'mc2', name: { ar: 'ماك أند تشيز كريسبي تشيكن', en: 'Crispy Chicken Mac & Cheese' }, desc: { ar: 'مكرونه إلبو · فراخ كريسبي · وايت صوص · صوص شيدر', en: 'Elbow pasta · crispy chicken · white sauce · cheddar sauce' }, price: 125, extras: ['بيروني / Pepperoni +15', 'موتزاريلا / Mozzarella +15'], tags: ['bs'] },
+                    { id: 'mc3', name: { ar: 'ماك أند تشيز جريلد تشيكن', en: 'Grilled Chicken Mac & Cheese' }, desc: { ar: 'مكرونه إلبو · فراخ جريلد · وايت صوص · صوص شيدر', en: 'Elbow pasta · grilled chicken · white sauce · cheddar sauce' }, price: 125, extras: ['بيروني / Pepperoni +15', 'موتزاريلا / Mozzarella +15'], tags: ['bs'] },
+                    { id: 'mc4', name: { ar: 'ماك أند تشيز بيروني', en: 'Pepperoni Mac & Cheese' }, desc: { ar: 'مكرونه إلبو · بيروني · وايت صوص · شيدر · موتزاريلا', en: 'Elbow pasta · pepperoni · white sauce · cheddar · mozzarella' }, price: 125, removables: ['بيروني / Pepperoni'], extras: ['تشيكن / Chicken +35'], tags: [] },
+                    { id: 'mc5', name: { ar: 'ماك أند تشيز ميكس', en: 'Mix Mac & Cheese' }, desc: { ar: 'مكرونه إلبو · بيروني · كريسبي تشيكن · وايت صوص · شيدر · موتزاريلا', en: 'Elbow pasta · pepperoni · crispy chicken · white sauce · cheddar · mozzarella' }, price: 150, removables: ['بيروني / Pepperoni'], tags: ['bs', 'new'] },
+                ]
+            },
+            {
+                id: 'sides', icon: '🍟',
+                name: { ar: 'أطباق جانبية', en: 'Sides & Soups' },
+                sub: { ar: '', en: '' },
+                items: [
+                    { id: 'chi', name: { ar: 'تشيكن', en: 'Chicken' }, desc: { ar: '', en: '' }, price: 35, sauces: ['تشيكن جريلد / Grilled Chicken', 'تشيكن كريسبي / Crispy Chicken'], tags: [] },
+                    { id: 'rz1', name: { ar: 'أرز بسمتي', en: 'Basmati Rice' }, desc: { ar: '', en: '' }, price: 25, tags: [] },
+                    { id: 'msh', name: { ar: 'مشروم', en: 'Mushroom' }, desc: { ar: '', en: '' }, price: 20, tags: [] },
+                    { id: 'pep', name: { ar: 'بيبيروني', en: 'Pepperoni' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'moz', name: { ar: 'موتزاريلا', en: 'Mozzarella' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'jal', name: { ar: 'هالبينو', en: 'Jalapeño' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'che', name: { ar: 'صوص شيدر', en: 'Cheddar Sauce' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'ran', name: { ar: 'صوص رانش', en: 'Ranch' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'tex', name: { ar: 'صوص تكساس', en: 'Texas Sauce' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'bbq', name: { ar: 'صوص باربكيو', en: 'BBQ Sauce' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'swt', name: { ar: 'صوص سويت شيلي', en: 'Sweet Chilli Sauce' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'buf', name: { ar: 'صوص بافلو', en: 'Buffalo Sauce' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'gar', name: { ar: 'صوص جارلك مايو', en: 'Garlic Mayo' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'tah', name: { ar: 'طحينة', en: 'Tahini' }, desc: { ar: '', en: '' }, price: 15, tags: [] },
+                    { id: 'may', name: { ar: 'مايونيز', en: 'Mayonnaise' }, desc: { ar: '', en: '' }, price: 5, tags: [] },
+                    { id: 'ket', name: { ar: 'كاتشب', en: 'Ketchup' }, desc: { ar: '', en: '' }, price: 5, tags: [] },
+                    { id: 'trk', name: { ar: 'طرشي', en: 'Pickles' }, desc: { ar: '', en: '' }, price: 5, tags: [] },
+                    { id: 'fr1', name: { ar: 'ساندوتش بطاطس تكساس / رانش / باربكيو', en: 'Fries Sandwich Texas / Ranch / BBQ' }, desc: { ar: 'سوري أو فرنساوي', en: 'Soury or French bread' }, price: 35, tags: [] },
+                    { id: 'fr2', name: { ar: 'ساندوتش بطاطس صوص شيدر', en: 'Fries Sandwich Cheddar Sauce' }, desc: { ar: 'سوري أو فرنساوي', en: 'Syrian or French bread' }, price: 40, tags: [] },
+                    { id: 'fr3', name: { ar: 'علبة بطاطس صغيرة', en: 'Small Fries Box' }, desc: { ar: '', en: '' }, price: 25, tags: [] },
+                    { id: 'fr4', name: { ar: 'علبة بطاطس كبيرة', en: 'Large Fries Box' }, desc: { ar: '', en: '' }, price: 35, tags: [] },
+                    { id: 'so1', name: { ar: 'شوربة كريمة فراخ', en: 'Cream of Chicken Soup' }, desc: { ar: '', en: '' }, price: 50, tags: [] },
+                    { id: 'so2', name: { ar: 'شوربة كريمة مشروم', en: 'Cream of Mushroom Soup' }, desc: { ar: '', en: '' }, price: 50, tags: [] },
+                    { id: 'so3', name: { ar: 'خضار سوتيه', en: 'Sautéed Vegetables' }, desc: { ar: '', en: '' }, price: 50, tags: [] },
+                    { id: 'so4', name: { ar: 'خضار سوتيه مشروم', en: 'Sautéed Vegetables with Mushroom' }, desc: { ar: '', en: '' }, price: 70, tags: [] },
+                ]
+            },
+        ];
+
+        const BS_IDS = ['fc1', 'lf1', 'hw3', 'hw4', 'ft1', 'ft2', 'q1', 'mc2', 'mc3', 'mc5'];
+
+        // ═══════════════════════ CART ═══════════════════════
+        let cart = [];
+
+        function saveCart() {
+            sessionStorage.setItem('menshos_cart', JSON.stringify(cart));
+        }
+
+        function getItem(id) { for (const c of MENU) for (const it of c.items) if (it.id === id) return it; return null; }
+
+        function addToCart(id, mods, qty) {
+            const item = getItem(id);
+            if (!item) return;
+            const modKey = JSON.stringify(mods || {});
+            const ex = cart.find(c => c.id === id && JSON.stringify(c.mods || {}) === modKey);
+            const q = qty || 1;
+            if (ex) ex.qty += q;
+            else cart.push({ id, name: typeof item.name === 'object' ? item.name[lang] : item.name, price: item.price + (mods && mods.extrasTotal || 0), qty: q, mods: mods || {} });
+            saveCart();
+            updateCartUI();
+            showToast((lang === 'ar' ? '✔ اتضاف للسلة: ' : '✔ Added to cart: ') + (typeof item.name === 'object' ? item.name[lang] : item.name));
+            document.querySelectorAll('[id="btn-' + id + '"]').forEach(btn => {
+                btn.textContent = lang === 'ar' ? '✔ اتضاف' : '✔ Added';
+                btn.classList.add('added');
+                setTimeout(() => {
+                    const isCustom = btn.getAttribute('data-has-custom') === 'true';
+                    btn.textContent = lang === 'ar' ? (isCustom ? 'تخصيص + إضافة' : 'أضف للسلة') : (isCustom ? 'Customize + Add' : 'Add to Cart');
+                    btn.classList.remove('added');
+                }, 1800);
+            });
+            const b = document.getElementById('hdr-count');
+            b.classList.add('bump'); setTimeout(() => b.classList.remove('bump'), 300);
+        }
+
+        function chgQty(idx, d) { if (cart[idx] === undefined) return; cart[idx].qty += d; if (cart[idx].qty <= 0) cart.splice(idx, 1); saveCart(); updateCartUI(); }
+        function removeItem(idx) { cart.splice(idx, 1); saveCart(); updateCartUI(); }
+        function clearCart() { cart = []; saveCart(); updateCartUI(); }
+
+        function updateCartUI() {
+            const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+            const count = cart.reduce((s, c) => s + c.qty, 0);
+            document.getElementById('hdr-count').textContent = count;
+            document.getElementById('mob-count').textContent = count;
+            document.getElementById('cart-total').textContent = total;
+            const list = document.getElementById('cart-list');
+            const waBtn = document.getElementById('wa-btn');
+            const clrBtn = document.getElementById('clear-btn');
+            if (!cart.length) {
+                list.innerHTML = `<div class="drw-empty"><span class="ei">🛒</span><p>${lang === 'ar' ? 'السلة فاضية<br>اختار من المنيو وأضف حاجات' : 'Cart is empty<br>Browse the menu and add items'}</p></div>`;
+                waBtn.disabled = true; clrBtn.style.display = 'none';
+            } else {
+                clrBtn.style.display = 'block';
+                list.innerHTML = cart.map((c, i) => {
+                    const modsText = buildModsText(c.mods);
+                    // Always render name from MENU in current language
+                    const menuItem = getItem(c.id);
+                    const displayName = menuItem ? (typeof menuItem.name === 'object' ? menuItem.name[lang] : menuItem.name) : c.name;
+                    return `<div class="ci">
+        <div>
+          <div class="ci-name">${displayName}</div>
+          ${modsText ? `<div class="ci-mods">✏️ ${modsText}</div>` : ''}
+          <div class="ci-price">${c.price * c.qty} EGP</div>
+          <div class="ci-qty">
+            <button class="qbtn" onclick="chgQty(${i},-1)">−</button>
+            <span class="qnum">${c.qty}</span>
+            <button class="qbtn" onclick="chgQty(${i},1)">+</button>
+            <span style="color:var(--gray);font-size:.72rem;margin-right:.3rem;">× ${c.price} EGP</span>
+          </div>
+        </div>
+        <button class="ci-del" onclick="removeItem(${i})">✕</button>
+      </div>`;
+                }).join('');
+            }
+            validateOrder();
+        }
+
+        function validateOrder() {
+            const waBtn = document.getElementById('wa-btn');
+            if (!waBtn) return;
+            if (!cart.length) { waBtn.disabled = true; return; }
+            const time = (document.getElementById('pickup-time')?.value || '').trim();
+            if (!time) { waBtn.disabled = true; return; }
+            if (!selectedPayment) { waBtn.disabled = true; return; }
+            if (!selectedService) { waBtn.disabled = true; return; }
+            if (selectedService === 'pickup') {
+                if (!selectedPickupPoint) { waBtn.disabled = true; return; }
+                if (selectedPickupPoint === 'custom') {
+                    const gv = (document.getElementById('custom-gate-val')?.value || '').trim();
+                    if (!gv) { waBtn.disabled = true; return; }
+                }
+                const nm = (document.getElementById('pickup-name')?.value || '').trim();
+                const ph = (document.getElementById('pickup-phone')?.value || '').trim();
+                if (!nm || !ph) { waBtn.disabled = true; return; }
+            } else if (selectedService === 'inside') {
+                const loc = (document.getElementById('inside-location')?.value || '').trim();
+                const nm  = (document.getElementById('inside-name')?.value || '').trim();
+                const ph  = (document.getElementById('inside-phone')?.value || '').trim();
+                if (!loc || !nm || !ph) { waBtn.disabled = true; return; }
+            } else if (selectedService === 'outside') {
+                const addr = (document.getElementById('outside-address')?.value || '').trim();
+                const nm   = (document.getElementById('outside-name')?.value || '').trim();
+                const ph   = (document.getElementById('outside-phone')?.value || '').trim();
+                if (!addr || !nm || !ph) { waBtn.disabled = true; return; }
+            }
+            waBtn.disabled = false;
+        }
+
+        function buildModsText(mods) {
+            if (!mods) return '';
+            const parts = [];
+            if (mods.size) parts.push((lang === 'ar' ? 'الحجم: ' : 'Size: ') + mods.size);
+            if (mods.side) parts.push((lang === 'ar' ? 'السايد: ' : 'Side: ') + mods.side);
+            if (mods.sauce) parts.push((lang === 'ar' ? 'الصوص: ' : 'Sauce: ') + mods.sauce);
+            if (mods.removed && mods.removed.length) parts.push((lang === 'ar' ? 'بدون: ' : 'No: ') + mods.removed.join(', '));
+            if (mods.extras && mods.extras.length) parts.push((lang === 'ar' ? 'إضافات: ' : 'Extras: ') + mods.extras.join(', '));
+            if (mods.note) parts.push((lang === 'ar' ? 'ملاحظة: ' : 'Note: ') + mods.note);
+            return parts.join(' | ');
+        }
+
+        function openCart() { document.getElementById('drawer').classList.add('open'); document.getElementById('overlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeCart() { document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').classList.remove('open'); document.body.style.overflow = ''; }
+
+        // ═══════════════════════ PAYMENT METHOD — NEW ═══════════════════════
+        let selectedPayment = 'cash';
+
+        function selectPayment(method) {
+            selectedPayment = method;
+            document.getElementById('pay-cash').classList.toggle('selected', method === 'cash');
+            document.getElementById('pay-instapay').classList.toggle('selected', method === 'instapay');
+            const info = document.getElementById('instapay-info');
+            if (method === 'instapay') { info.classList.add('show'); } else { info.classList.remove('show'); }
+            validateOrder();
+        }
+
+        // ═══════════════════════ SERVICE TYPE ═══════════════════════
+        let selectedService = 'pickup';
+        let selectedPickupPoint = 'restaurant';
+
+        function selectService(svc) {
+            selectedService = svc;
+            ['pickup','inside','outside'].forEach(s => {
+                document.getElementById('svc-' + s).classList.toggle('selected', s === svc);
+                document.getElementById('svc-detail-' + s).style.display = s === svc ? 'block' : 'none';
+            });
+            validateOrder();
+        }
+
+        function selectPickupPoint(point) {
+            selectedPickupPoint = point;
+            ['restaurant','custom'].forEach(p => {
+                const el = document.getElementById('loc-' + (p === 'custom' ? 'custom-gate' : p));
+                if (el) el.classList.toggle('selected', p === point);
+            });
+            const customInput = document.getElementById('custom-gate-input');
+            if (customInput) customInput.style.display = point === 'custom' ? 'block' : 'none';
+            validateOrder();
+        }
+
+        function selectLocation(loc) { selectPickupPoint(loc === 'gate' ? 'restaurant' : 'restaurant'); }
+        // ═══════════════════════ END SERVICE TYPE ═══════════════════════
+
+        // ═══════════════════════ CUSTOMIZATION MODAL ═══════════════════════
+        let currentItemId = null;
+        let modalQty = 1;
+        let selectedSauce = '';
+        let selectedSauces = new Set();
+        let saucePriceTotal = 0;
+        let selectedRemoved = new Set();
+        let selectedExtras = new Set();
+        let extrasPriceTotal = 0;
+        let customComment = '';
+        let selectedBase = '';
+        let selectedSideDish = '';
+        let selectedSize = '';
+        let sizePriceExtra = 0;
+
+        function openCustomize(id) {
+            const item = getItem(id);
+            if (!item) return;
+            currentItemId = id;
+            modalQty = 1;
+            selectedSauce = item.sauces ? item.sauces[0] : '';
+            selectedSauces = new Set();
+            saucePriceTotal = 0;
+            selectedRemoved = new Set();
+            selectedExtras = new Set();
+            extrasPriceTotal = 0;
+            customComment = '';
+            selectedBase = '';
+            selectedSideDish = '';
+            selectedSize = '';
+            sizePriceExtra = 0;
+
+            const name = typeof item.name === 'object' ? item.name[lang] : item.name;
+            const desc = item.desc ? (typeof item.desc === 'object' ? item.desc[lang] : item.desc) : '';
+
+            document.getElementById('modal-title').textContent = lang === 'ar' ? 'تخصيص الطلب' : 'Customize Order';
+            const addBtn = document.getElementById('modal-add-btn');
+            addBtn.querySelector('[data-ar]').textContent = lang === 'ar' ? 'أضف للسلة' : 'Add to Cart';
+            addBtn.disabled = !!item.sideOptions || !!item.sizeOptions;
+
+            let html = `<div class="modal-item-name">${name}</div>`;
+            if (desc) html += `<div class="modal-item-desc">${desc}</div>`;
+
+            // ── SIZE OPTIONS for loaded fries ──
+            if (item.sizeOptions) {
+                html += `<div class="mod-section">
+  <div class="mod-section-title">${lang === 'ar' ? '📏 اختار الحجم (مطلوب)' : '📏 Choose Size (Required)'}</div>
+  <div class="side-opts">
+    <div class="side-opt" id="size-small" onclick="pickSize('small')">
+      <div class="side-opt-radio"></div>
+      <span style="font-size:.84rem;font-weight:700;">${lang === 'ar' ? 'صغير' : 'Small'} — ${item.price} EGP</span>
+    </div>
+    <div class="side-opt" id="size-large" onclick="pickSize('large')">
+      <div class="side-opt-radio"></div>
+      <span style="font-size:.84rem;font-weight:700;">${lang === 'ar' ? 'كبير' : 'Large'} — ${item.price + 30} EGP</span>
+    </div>
+  </div>
+</div>`;
+            }
+
+            // ── SIDE OPTIONS for main meals ──
+            if (item.sideOptions) {
+                const ar = lang === 'ar';
+                html += `<div class="mod-section">
+  <div class="mod-section-title">${ar ? '🍽️ اختار السايد (مطلوب)' : '🍽️ Choose Your Side (Required)'}</div>
+
+  <div class="side-opts">
+    <div class="side-opt" id="so-basmati" onclick="pickBase('basmati')">
+      <div class="side-opt-radio"></div>
+      <span style="font-size:.84rem;font-weight:700;">🍚 ${ar ? 'أرز بسمتي' : 'Basmati Rice'}</span>
+    </div>
+    <div class="side-opt" id="so-white" onclick="pickBase('white')">
+      <div class="side-opt-radio"></div>
+      <span style="font-size:.84rem;font-weight:700;">🍚 ${ar ? 'أرز أبيض' : 'White Rice'}</span>
+    </div>
+    <div class="side-opt" id="so-pasta-white" onclick="pickBase('pasta-white')">
+      <div class="side-opt-radio"></div>
+      <span style="font-size:.84rem;font-weight:700;">🍝 ${ar ? 'باستا وايت صوص' : 'Pasta White Sauce'}</span>
+    </div>
+    <div class="side-opt" id="so-pasta-red" onclick="pickBase('pasta-red')">
+      <div class="side-opt-radio"></div>
+      <span style="font-size:.84rem;font-weight:700;">🍝 ${ar ? 'باستا ريد صوص' : 'Pasta Red Sauce'}</span>
+    </div>
+  </div>
+
+  <div id="side-dish-section" style="display:none;">
+    <div class="side-sub-label">${ar ? 'مع الأرز، اختار:' : 'With rice, choose:'}</div>
+    <div class="side-opts">
+      <div class="side-opt" id="sd-fries" onclick="pickSideDish('fries')">
+        <div class="side-opt-radio"></div>
+        <span style="font-size:.84rem;font-weight:700;">🍟 ${ar ? 'فرايز' : 'Fries'}</span>
+      </div>
+      <div class="side-opt" id="sd-veggies" onclick="pickSideDish('veggies')">
+        <div class="side-opt-radio"></div>
+        <span style="font-size:.84rem;font-weight:700;">🥦 ${ar ? 'خضار سوتيه' : 'Sautéed Veggies'}</span>
+      </div>
+    </div>
+  </div>
+</div>`;
+            }
+
+            if (item.multiSauceOptions) {
+                html += `<div class="mod-section">
+  <div class="mod-section-title">${lang === 'ar' ? 'اختار حتى 3 صوصات' : 'Choose Up to 3 Sauces'}</div>
+  <div style="color:var(--gray);font-size:.72rem;margin-bottom:.6rem;">${lang === 'ar' ? 'يمكنك اختيار حتى 3 صوصات. الشيدر يضيف +15 جنيه.' : 'You can choose up to 3 sauces. Cheddar adds +15 EGP.'}</div>
+  <div class="mod-opts">`;
+                item.freeSauces.forEach(s => {
+                    html += `<div class="mod-opt" onclick="toggleFreeSauce(this,'${s.replace(/'/g,"\\'")}')">
+      <div class="mod-opt-left"><div class="mod-opt-check"></div><div class="mod-opt-name">${s}</div></div>
+      <div class="mod-opt-price free">${lang === 'ar' ? 'مجاناً' : 'Free'}</div>
+    </div>`;
+                });
+                item.paidSauces.forEach(s => {
+                    html += `<div class="mod-opt" onclick="togglePaidSauce(this,'${s.replace(/'/g,"\\'")}',15)">
+      <div class="mod-opt-left"><div class="mod-opt-check"></div><div class="mod-opt-name">${s}</div></div>
+      <div class="mod-opt-price">+15 EGP</div>
+    </div>`;
+                });
+                html += `</div></div>`;
+            } else if (item.sauces && item.sauces.length) {
+                const sauceTitle = currentItemId === 'chi'
+                    ? (lang === 'ar' ? 'اختار النوع (مطلوب)' : 'Choose Type (Required)')
+                    : (lang === 'ar' ? 'اختار الصوص' : 'Choose Your Sauce');
+                html += `<div class="mod-section">
+      <div class="mod-section-title">${sauceTitle}</div>
+      <div class="sauce-opts-grid">`;
+                item.sauces.forEach((s, i) => {
+                    const isSel = i === 0;
+                    html += `<div class="sauce-opt${isSel ? ' sel' : ''}" onclick="pickSauce(this,'${s}')">
+        <div class="sauce-radio"></div>
+        <div class="sauce-opt-name">${s}</div>
+      </div>`;
+                });
+                html += `</div></div>`;
+            }
+
+            if (item.removables && item.removables.length) {
+                html += `<div class="mod-section">
+      <div class="mod-section-title">${lang === 'ar' ? 'اشيل إيه؟ (اختياري)' : 'Remove Ingredients (Optional)'}</div>
+      <div class="mod-opts">`;
+                item.removables.forEach(r => {
+                    html += `<div class="mod-opt" onclick="toggleRemove(this,'${r}')">
+        <div class="mod-opt-left">
+          <div class="mod-opt-check"></div>
+          <div class="mod-opt-name">${r}</div>
+        </div>
+      </div>`;
+                });
+                html += `</div></div>`;
+            }
+
+            if (item.extras && item.extras.length) {
+                html += `<div class="mod-section">
+      <div class="mod-section-title">${lang === 'ar' ? 'ضيف إيه؟' : 'Add Extras'}</div>
+      <div class="mod-opts">`;
+                item.extras.forEach(e => {
+                    const pMatch = e.match(/\+(\d+)/);
+                    const p = pMatch ? parseInt(pMatch[1]) : 0;
+                    html += `<div class="mod-opt" data-price="${p}" onclick="toggleExtra(this,'${e}',${p})">
+        <div class="mod-opt-left">
+          <div class="mod-opt-check"></div>
+          <div class="mod-opt-name">${e}</div>
+        </div>
+        <div class="mod-opt-price${p ? '' : ' free'}">+${p} EGP</div>
+      </div>`;
+                });
+                html += `</div></div>`;
+            }
+
+            html += `<div class="mod-section">
+            <div class="mod-section-title">${lang === 'ar' ? 'إذا كنت تريد إضافة شيء غير موجود في الخيارات، اكتب هنا' : 'If you want to add something not in the options, please write it here'}</div>
+            <textarea
+                class="mod-note"
+                id="custom-comment"
+                placeholder="${lang === 'ar' ? 'مثال: عايز الصوص على الجنب أو تحمير زيادة' : 'Example: sauce on the side, extra crispy, cut in half...'}"
+            ></textarea>
+            </div>`;
+
+            html += `<div class="mod-section">
+    <div class="mod-section-title">${lang === 'ar' ? 'الكمية' : 'Quantity'}</div>
+    <div class="modal-qty">
+      <button class="modal-qty-btn" onclick="changeModalQty(-1)">−</button>
+      <span class="modal-qty-num" id="modal-qty-num">1</span>
+      <button class="modal-qty-btn" onclick="changeModalQty(1)">+</button>
+    </div>
+  </div>`;
+
+            document.getElementById('modal-body').innerHTML = html;
+            updateModalTotal();
+            document.getElementById('modal-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function pickSauce(el, sauce) {
+            document.querySelectorAll('.sauce-opt').forEach(o => o.classList.remove('sel'));
+            el.classList.add('sel');
+            selectedSauce = sauce;
+        }
+
+        function pickSize(size) {
+            selectedSize = size;
+            sizePriceExtra = size === 'large' ? 30 : 0;
+            ['small','large'].forEach(s => {
+                const el = document.getElementById('size-' + s);
+                if (el) el.classList.toggle('selected', s === size);
+            });
+            const addBtn = document.getElementById('modal-add-btn');
+            if (addBtn) addBtn.disabled = false;
+            updateModalTotal();
+        }
+
+        function toggleFreeSauce(el, sauce) {
+            if (selectedSauces.has(sauce)) {
+                selectedSauces.delete(sauce);
+                el.classList.remove('selected');
+                return;
+            }
+            if (selectedSauces.size >= 3) {
+                showToast(lang === 'ar' ? 'يمكن اختيار 3 صوصات فقط' : 'You can only choose 3 sauces total');
+                return;
+            }
+            selectedSauces.add(sauce);
+            el.classList.add('selected');
+        }
+
+        function togglePaidSauce(el, sauce, price) {
+            if (selectedSauces.has(sauce)) {
+                selectedSauces.delete(sauce);
+                saucePriceTotal -= price;
+                el.classList.remove('selected');
+            } else {
+                if (selectedSauces.size >= 3) {
+                    showToast(lang === 'ar' ? 'يمكن اختيار 3 صوصات فقط' : 'You can only choose 3 sauces total');
+                    return;
+                }
+                selectedSauces.add(sauce);
+                saucePriceTotal += price;
+                el.classList.add('selected');
+            }
+            updateModalTotal();
+        }
+
+        function pickBase(base) {
+            selectedBase = base;
+            selectedSideDish = '';
+            // Update base radio UI
+            ['basmati','white','pasta-white','pasta-red'].forEach(b => {
+                const el = document.getElementById('so-' + b);
+                if (el) el.classList.toggle('selected', b === base);
+            });
+            // Show/hide side dish section
+            const sideSec = document.getElementById('side-dish-section');
+            const isRice = base === 'basmati' || base === 'white';
+            if (sideSec) sideSec.style.display = isRice ? 'block' : 'none';
+            // Reset side dish selection
+            ['fries','veggies'].forEach(s => {
+                const el = document.getElementById('sd-' + s);
+                if (el) el.classList.remove('selected');
+            });
+            // Enable/disable add button
+            const addBtn = document.getElementById('modal-add-btn');
+            if (addBtn) addBtn.disabled = isRice; // still needs side dish if rice
+        }
+
+        function pickSideDish(dish) {
+            selectedSideDish = dish;
+            ['fries','veggies'].forEach(s => {
+                const el = document.getElementById('sd-' + s);
+                if (el) el.classList.toggle('selected', s === dish);
+            });
+            // Now fully valid — enable add button
+            const addBtn = document.getElementById('modal-add-btn');
+            if (addBtn) addBtn.disabled = false;
+        }
+
+        function toggleRemove(el, item) {
+            el.classList.toggle('selected');
+            if (el.classList.contains('selected')) selectedRemoved.add(item);
+            else selectedRemoved.delete(item);
+        }
+
+        function toggleExtra(el, item, price) {
+            el.classList.toggle('selected');
+            if (el.classList.contains('selected')) { selectedExtras.add(item); extrasPriceTotal += price; }
+            else { selectedExtras.delete(item); extrasPriceTotal -= price; }
+            updateModalTotal();
+        }
+
+        function changeModalQty(d) {
+            modalQty = Math.max(1, modalQty + d);
+            document.getElementById('modal-qty-num').textContent = modalQty;
+            updateModalTotal();
+        }
+
+        function updateModalTotal() {
+            const item = getItem(currentItemId);
+            if (!item) return;
+            const t = (item.price + sizePriceExtra + extrasPriceTotal + saucePriceTotal) * modalQty;
+            document.getElementById('modal-total').textContent = t + ' EGP';
+        }
+
+        function confirmAdd() {
+            const item = getItem(currentItemId);
+            if (!item) return;
+            if (item.sizeOptions && !selectedSize) {
+                showToast(lang === 'ar' ? 'لازم تختار الحجم' : 'Please choose a size');
+                return;
+            }
+            if (item.sideOptions && !selectedBase) {
+                showToast(lang === 'ar' ? 'لازم تختار السايد' : 'Please choose a side');
+                return;
+            }
+            if (item.sideOptions && (selectedBase === 'basmati' || selectedBase === 'white') && !selectedSideDish) {
+                showToast(lang === 'ar' ? 'لازم تختار فرايز أو خضار مع الأرز' : 'Please choose fries or veggies with rice');
+                return;
+            }
+            let sideLabel = '';
+            if (item.sideOptions && selectedBase) {
+                const ar = lang === 'ar';
+                const baseLabels = { 'basmati': ar ? 'أرز بسمتي' : 'Basmati Rice', 'white': ar ? 'أرز أبيض' : 'White Rice', 'pasta-white': ar ? 'باستا وايت صوص' : 'Pasta White Sauce', 'pasta-red': ar ? 'باستا ريد صوص' : 'Pasta Red Sauce' };
+                const dishLabels = { 'fries': ar ? 'فرايز' : 'Fries', 'veggies': ar ? 'خضار سوتيه' : 'Sautéed Veggies' };
+                sideLabel = baseLabels[selectedBase] || '';
+                if (selectedSideDish) sideLabel += ' + ' + (dishLabels[selectedSideDish] || '');
+            }
+            const sizeLabel = selectedSize ? (lang === 'ar' ? (selectedSize === 'small' ? 'صغير' : 'كبير') : (selectedSize === 'small' ? 'Small' : 'Large')) : '';
+            const mods = {
+                size: sizeLabel,
+                sauce: item.multiSauceOptions ? [...selectedSauces].join(', ') : (selectedSauce || ''),
+                removed: [...selectedRemoved],
+                extras: [...selectedExtras],
+                extrasTotal: extrasPriceTotal + sizePriceExtra + saucePriceTotal,
+                side: sideLabel,
+                note: document.getElementById('custom-comment') ? document.getElementById('custom-comment').value.trim() : ''
+            };
+            addToCart(currentItemId, mods, modalQty);
+            closeModal();
+        }
+
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('modal-overlay')) return;
+            document.getElementById('modal-overlay').classList.remove('open');
+            if (!document.getElementById('drawer').classList.contains('open')) document.body.style.overflow = '';
+        }
+
+        function sendOrder() {
+            if (!cart.length) return;
+            const time = document.getElementById('pickup-time').value.trim() || (lang === 'ar' ? 'لم يحدد' : 'Not specified');
+            const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+
+            // ── Payment method ──
+            const payLabel = selectedPayment === 'instapay'
+                ? '📲 Instapay / Telda (بانتظار تأكيد الكاشير) · ارسل السكرين شوت مع طلبك'
+                : '💵 كاش عند الاستلام';
+
+            // ── Service / delivery details ──
+            let serviceLabel = '';
+            if (selectedService === 'pickup') {
+                let point = '';
+                if (selectedPickupPoint === 'restaurant') point = lang === 'ar' ? 'المطعم مباشرة' : 'At the Restaurant';
+                else {
+                    const customGate = document.getElementById('custom-gate-val');
+                    point = (customGate && customGate.value.trim()) || (lang === 'ar' ? 'بوابة غير محددة' : 'Unspecified gate');
+                }
+                const name  = (document.getElementById('pickup-name')?.value.trim())  || '-';
+                const phone = (document.getElementById('pickup-phone')?.value.trim()) || '-';
+                serviceLabel = `🚶 ${lang === 'ar' ? 'بيك-أب' : 'Pick-Up'} — ${point}\n👤 ${lang === 'ar' ? 'الاسم' : 'Name'}: ${name}\n📞 ${lang === 'ar' ? 'موبايل' : 'Phone'}: ${phone}`;
+            } else if (selectedService === 'inside') {
+                const loc   = (document.getElementById('inside-location')?.value.trim()) || '-';
+                const name  = (document.getElementById('inside-name')?.value.trim())    || '-';
+                const phone = (document.getElementById('inside-phone')?.value.trim())   || '-';
+                serviceLabel = `🏌️ ${lang === 'ar' ? 'ديليفري داخل النادي' : 'Delivery Inside Club'}\n📍 ${lang === 'ar' ? 'المكان' : 'Location'}: ${loc}\n👤 ${lang === 'ar' ? 'الاسم' : 'Name'}: ${name}\n📞 ${lang === 'ar' ? 'موبايل' : 'Phone'}: ${phone}`;
+            } else {
+                const addr  = (document.getElementById('outside-address')?.value.trim()) || '-';
+                const name  = (document.getElementById('outside-name')?.value.trim())   || '-';
+                const phone = (document.getElementById('outside-phone')?.value.trim())  || '-';
+                serviceLabel = `🚗 ${lang === 'ar' ? 'ديليفري خارج النادي (السعر يتحدد مع الكاشير)' : 'Delivery Outside Club (price to be agreed with cashier)'}\n📍 ${lang === 'ar' ? 'العنوان' : 'Address'}: ${addr}\n👤 ${lang === 'ar' ? 'الاسم' : 'Name'}: ${name}\n📞 ${lang === 'ar' ? 'موبايل' : 'Phone'}: ${phone}`;
+            }
+
+            let msg = '🍗 *MENSHOS — طلب جديد*\n';
+            msg += '━━━━━━━━━━━━━━━━━━\n';
+            cart.forEach(c => {
+                const menuItem = getItem(c.id);
+                const displayName = menuItem ? (typeof menuItem.name === 'object' ? menuItem.name[lang] : menuItem.name) : c.name;
+                msg += `• ${displayName} × ${c.qty} — ${c.price * c.qty} EGP\n`;
+                const mt = buildModsText(c.mods);
+                if (mt) msg += `  ↳ ${mt}\n`;
+            });
+            msg += '━━━━━━━━━━━━━━━━━━\n';
+            msg += `💰 *${lang === 'ar' ? 'الإجمالي' : 'Total'}: ${total} EGP*\n`;
+            msg += `💳 *${lang === 'ar' ? 'طريقة الدفع' : 'Payment'}: ${payLabel}*\n`;
+            msg += `⏰ *${lang === 'ar' ? 'وقت الاستلام' : 'Time'}: ${time}*\n`;
+            msg += `📦 *${lang === 'ar' ? 'الخدمة' : 'Service'}:*\n${serviceLabel}\n`;
+            msg += '🏪 *MENSHOS — نادي الصيد، الدقي*\n';
+            msg += '\n_Enjoy Every Bite! 🔥_';
+            window.open('https://wa.me/201147324430?text=' + encodeURIComponent(msg), '_blank');
+        }
+        function openWA() { if (cart.length) sendOrder(); else window.open('https://wa.me/201147324430', '_blank'); }
+
+        // ═══════════════════════ TOAST ═══════════════════════
+        let toastT;
+        function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.style.opacity = '1'; clearTimeout(toastT); toastT = setTimeout(() => t.style.opacity = '0', 2400); }
+
+        // ═══════════════════════ RENDER ═══════════════════════
+        function renderBS() {
+            const bsItems = [];
+            for (const cat of MENU) for (const it of cat.items) if (BS_IDS.includes(it.id)) bsItems.push(it);
+            const grid = document.getElementById('bs-grid');
+            if (!grid) return;
+            grid.className = 'card-grid';
+            const catIcon = (id) => { for (const c of MENU) for (const it of c.items) if (it.id === id) return c.icon; return '🍽️'; };
+            grid.innerHTML = bsItems.map(it => {
+                const name = typeof it.name === 'object' ? it.name[lang] : it.name;
+                const desc = it.desc ? (typeof it.desc === 'object' ? it.desc[lang] : it.desc) : '';
+                const pnote = it.priceNote ? (typeof it.priceNote === 'object' ? it.priceNote[lang] : it.priceNote) : '';
+                const hasCustom = it.sauces || it.removables || it.extras || it.sideOptions || it.sizeOptions || it.multiSauceOptions;
+                const btnLabel = hasCustom ? (lang === 'ar' ? 'تخصيص + إضافة' : 'Customize + Add') : (lang === 'ar' ? 'أضف للسلة' : 'Add to Cart');
+                const icon = catIcon(it.id);
+                return `<div class="icard fi">
+  <div class="icard-img">
+    <img src="images/${it.id}.jpg" alt="${name}"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="icard-fallback" style="display:none">${icon}</div>
+  </div>
+  <div class="icard-body">
+    <div class="icard-name">⭐ ${name}</div>
+    ${desc ? `<div class="icard-desc">${desc}</div>` : ''}
+    ${pnote ? `<div class="icard-pnote">📏 ${pnote}</div>` : ''}
+    ${it.sauces ? `<div class="icard-sauce-row">${it.sauces.map(s => `<span class="spill">🥣 ${s}</span>`).join('')}</div>` : ''}
+    <div class="icard-footer">
+      <div class="icard-price">${it.price} <small>EGP</small></div>
+      <button class="icard-btn" id="btn-${it.id}" data-has-custom="${hasCustom ? 'true' : 'false'}"
+        onclick="${hasCustom ? `openCustomize('${it.id}')` : `addToCart('${it.id}',{},1)`}">${btnLabel}</button>
+    </div>
+  </div>
+</div>`;
+            }).join('');
+        }
+
+        function renderMenu() {
+            const tabs = document.getElementById('menu-tabs');
+            const body = document.getElementById('menu-body');
+            if (!tabs || !body) return;
+            tabs.innerHTML = MENU.map(c => `<button class="mtab" id="tab-${c.id}" onclick="jumpToSection('${c.id}')">${c.icon} ${typeof c.name === 'object' ? c.name[lang] : c.name}</button>`).join('');
+            body.innerHTML = MENU.map(c => {
+                const cname = typeof c.name === 'object' ? c.name[lang] : c.name;
+                const csub = typeof c.sub === 'object' ? c.sub[lang] : c.sub;
+                const useGrid = c.id !== 'sides';
+
+                const itemsHTML = useGrid
+                    ? `<div class="card-grid">${c.items.map(it => {
+                        const name = typeof it.name === 'object' ? it.name[lang] : it.name;
+                        const desc = it.desc ? (typeof it.desc === 'object' ? it.desc[lang] : it.desc) : '';
+                        const pnote = it.priceNote ? (typeof it.priceNote === 'object' ? it.priceNote[lang] : it.priceNote) : '';
+                        const hasCustom = it.sauces || it.removables || it.extras || it.sideOptions || it.sizeOptions || it.multiSauceOptions;
+                        const btnLabel = hasCustom ? (lang === 'ar' ? 'تخصيص + إضافة' : 'Customize + Add') : (lang === 'ar' ? 'أضف للسلة' : 'Add to Cart');
+                        return `<div class="icard fi">
+  <div class="icard-img">
+    <img src="images/${it.id}.jpg" alt="${name}"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="icard-fallback" style="display:none">${c.icon}</div>
+  </div>
+  <div class="icard-body">
+    <div class="icard-name">${name}</div>
+    ${desc ? `<div class="icard-desc">${desc}</div>` : ''}
+    <div class="icard-tags">
+      ${it.tags.includes('bs') ? `<span class="itag itag-y">⭐ Best Seller</span>` : ''}
+      ${it.tags.includes('spicy') ? `<span class="itag itag-r">🌶️ ${lang === 'ar' ? 'حار' : 'Spicy'}</span>` : ''}
+      ${it.tags.includes('new') ? `<span class="itag itag-g">🆕 ${lang === 'ar' ? 'جديد' : 'New'}</span>` : ''}
+    </div>
+    ${it.sauces ? `<div class="icard-sauce-row">${it.sauces.map(s => `<span class="spill">🥣 ${s}</span>`).join('')}</div>` : ''}
+    ${pnote ? `<div class="icard-pnote">📏 ${pnote}</div>` : ''}
+    <div class="icard-footer">
+      <div class="icard-price">${it.price} <small>EGP</small></div>
+      <button class="icard-btn" id="btn-${it.id}" data-has-custom="${hasCustom ? 'true' : 'false'}"
+        onclick="${hasCustom ? `openCustomize('${it.id}')` : `addToCart('${it.id}',{},1)`}">${btnLabel}</button>
+    </div>
+  </div>
+</div>`;
+                    }).join('')}</div>`
+                    : `<div class="items">${c.items.map(it => {
+                        const name = typeof it.name === 'object' ? it.name[lang] : it.name;
+                        const desc = it.desc ? (typeof it.desc === 'object' ? it.desc[lang] : it.desc) : '';
+                        const hasCustom = it.sauces || it.removables || it.extras || it.sideOptions || it.sizeOptions || it.multiSauceOptions;
+                        const btnLabel = hasCustom ? (lang === 'ar' ? 'تخصيص + إضافة' : 'Customize + Add') : (lang === 'ar' ? 'أضف للسلة' : 'Add to Cart');
+                        return `<div class="irow fi">
+            <div>
+              <div class="iname">${name}</div>
+              ${desc ? `<div class="idesc">${desc}</div>` : ''}
+            </div>
+            <div class="iright" onclick="event.stopPropagation()">
+              <div class="iprice">${it.price} <small>EGP</small></div>
+              <button class="add-btn" id="btn-${it.id}" data-has-custom="${hasCustom ? 'true' : 'false'}"
+                onclick="${hasCustom ? `openCustomize('${it.id}')` : `addToCart('${it.id}',{},1)`}">${btnLabel}</button>
+            </div>
+          </div>`;
+                    }).join('')}</div>`;
+
+                return `<div class="cat-block" id="sec-${c.id}">
+  <div class="cat-hdr fi">
+    <span class="cat-icon">${c.icon}</span>
+    <div>
+      <div class="cat-name">${cname}</div>
+      ${csub ? `<div class="cat-sub">${csub} · ${c.items.length} ${lang === 'ar' ? 'صنف' : 'items'}</div>` : ''}
+    </div>
+  </div>
+  ${itemsHTML}
+</div>`;
+            }).join('');
+        }
+
+        // ═══════════════════════ INSTANT SCROLL TO CATEGORY ═══════════════════════
+        function jumpToSection(id) {
+            const navBar = document.querySelector('.menu-nav');
+            const headerEl = document.querySelector('header');
+            const el = document.getElementById('sec-' + id);
+            if (!el) return;
+            const navH = navBar ? navBar.offsetHeight : 0;
+            const hdrH = headerEl ? headerEl.offsetHeight : 0;
+            const offset = hdrH + navH + 12;
+            const top = el.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+
+        // ═══════════════════════ SCROLL SPY ═══════════════════════
+        function initSpy() {
+            let activeId = null;
+            let ticking = false;
+
+            function getSections() {
+                return MENU
+                    .map(c => document.getElementById('sec-' + c.id))
+                    .filter(Boolean);
+            }
+
+            function getTabs() {
+                return [...document.querySelectorAll('.mtab')];
+            }
+
+            function setActiveCategory(id) {
+                if (!id || id === activeId) return;
+                activeId = id;
+
+                const tabs = getTabs();
+                tabs.forEach(t => t.classList.remove('on'));
+
+                const activeTab = document.getElementById('tab-' + id);
+                if (activeTab) {
+                    activeTab.classList.add('on');
+                    activeTab.scrollIntoView({
+                        block: 'nearest',
+                        inline: 'center',
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            function detectActiveSection() {
+                const sections = getSections();
+                const viewportMiddle = window.innerHeight / 2;
+                let closestSection = null;
+                let closestDistance = Infinity;
+
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const sectionMiddle = rect.top + rect.height / 2;
+                    const distance = Math.abs(sectionMiddle - viewportMiddle);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestSection = section;
+                    }
+                });
+
+                if (closestSection) {
+                    const id = closestSection.id.replace('sec-', '');
+                    setActiveCategory(id);
+                }
+
+                ticking = false;
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    window.requestAnimationFrame(detectActiveSection);
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+
+            detectActiveSection();
+        }
+
+        // ═══════════════════════ FADE ═══════════════════════
+        function initFade() {
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('v'), i * 40); obs.unobserve(e.target); } });
+            }, { threshold: 0.07 });
+            document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+        }
+
+        // ═══════════════════════ TICKER ENGINE ═══════════════════════
+        function startTicker(track, direction) {
+            if (!track) return;
+            const sets = track.querySelectorAll('.ticker-set');
+            if (sets.length < 2) return;
+
+            const setW = sets[0].offsetWidth;
+            if (setW === 0) return;
+
+            const vw = window.innerWidth;
+            track.style.animation = 'none';
+            track.style.position = 'relative';
+            track.style.width = vw + 'px';
+            track.style.height = sets[0].offsetHeight + 'px';
+            track.style.overflow = 'hidden';
+            track.style.transform = '';
+
+            // Position each set absolutely
+            sets.forEach(s => {
+                s.style.position = 'absolute';
+                s.style.top = '0';
+                s.style.whiteSpace = 'nowrap';
+            });
+
+            const speed = 0.8;
+
+            if (direction === 'ltr') {
+                // English: moves right to left
+                // set[0] starts at right edge (vw), set[1] follows after it
+                let p0 = 0;            // set[0] starts visible from left
+                let p1 = setW;         // set[1] starts just after set[0]
+                sets[0].style.left = p0 + 'px';
+                sets[1].style.left = p1 + 'px';
+
+                function stepLtr() {
+                    p0 -= speed;
+                    p1 -= speed;
+                    // When a set is fully off the left edge, jump it to after the other set
+                    if (p0 <= -setW) p0 = p1 + setW;
+                    if (p1 <= -setW) p1 = p0 + setW;
+                    sets[0].style.left = p0 + 'px';
+                    sets[1].style.left = p1 + 'px';
+                    track._rafId = requestAnimationFrame(stepLtr);
+                }
+                if (track._rafId) cancelAnimationFrame(track._rafId);
+                requestAnimationFrame(stepLtr);
+
+            } else {
+                // Arabic: moves left to right
+                // set[0] starts just off left edge, set[1] before it
+                let p0 = -setW;        // set[0] starts just off left
+                let p1 = -(setW * 2);  // set[1] behind set[0]
+                sets[0].style.left = p0 + 'px';
+                sets[1].style.left = p1 + 'px';
+
+                function stepRtl() {
+                    p0 += speed;
+                    p1 += speed;
+                    // When a set is fully off the right edge, jump it behind the other set
+                    if (p0 >= vw) p0 = p1 - setW;
+                    if (p1 >= vw) p1 = p0 - setW;
+                    sets[0].style.left = p0 + 'px';
+                    sets[1].style.left = p1 + 'px';
+                    track._rafId = requestAnimationFrame(stepRtl);
+                }
+                if (track._rafId) cancelAnimationFrame(track._rafId);
+                requestAnimationFrame(stepRtl);
+            }
+        }
+
+        function setupTickers() {
+            const arTrack = document.getElementById('ticker-ar');
+            const enTrack = document.getElementById('ticker-en');
+            // Start whichever is visible
+            if (arTrack && arTrack.style.display !== 'none') startTicker(arTrack, 'rtl');
+            if (enTrack && enTrack.style.display !== 'none') startTicker(enTrack, 'ltr');
+        }
+
+        document.fonts.ready.then(setupTickers);
+        // ═══════════════════════ END TICKER ENGINE ═══════════════════════
+
+        // ═══════════════════════ INIT ═══════════════════════
+
+        // Restore from sessionStorage if available
+        const _savedLang     = sessionStorage.getItem('menshos_lang');
+        const _savedCart     = sessionStorage.getItem('menshos_cart');
+        const _savedPayment  = sessionStorage.getItem('menshos_payment');
+        const _savedService  = sessionStorage.getItem('menshos_service');
+
+        if (_savedLang) {
+            lang = _savedLang;
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                if (el.tagName === 'INPUT') {
+                    el.placeholder = lang === 'ar' ? (el.getAttribute('data-ar-placeholder') || '') : (el.getAttribute('data-en-placeholder') || '');
+                } else {
+                    el.innerHTML = el.getAttribute('data-' + lang) || el.getAttribute('data-ar');
+                }
+            });
+            // Switch ticker
+            const arTrack = document.getElementById('ticker-ar');
+            const enTrack = document.getElementById('ticker-en');
+            arTrack.style.display = lang === 'ar' ? 'flex' : 'none';
+            enTrack.style.display = lang === 'en' ? 'flex' : 'none';
+            document.fonts.ready.then(() => {
+                if (lang === 'ar') startTicker(arTrack, 'rtl');
+                else startTicker(enTrack, 'ltr');
+            });
+        }
+
+        if (_savedCart) {
+            try { cart = JSON.parse(_savedCart); } catch(e) { cart = []; }
+        }
+
+        if (_savedPayment) {
+            selectedPayment = _savedPayment;
+            selectPayment(_savedPayment);
+        }
+
+        if (_savedService) {
+            selectService(_savedService);
+        }
+
+        renderBS();
+        renderMenu();
+        updateCartUI();
+        // Apply correct placeholders for initial language
+        document.querySelectorAll('input[data-ar-placeholder]').forEach(el => {
+            el.placeholder = lang === 'ar'
+                ? (el.getAttribute('data-ar-placeholder') || '')
+                : (el.getAttribute('data-en-placeholder') || '');
+        });
+        setTimeout(() => { initFade(); initSpy(); }, 80);
+
+        // Live validation on all order fields
+        ['pickup-time','pickup-name','pickup-phone','custom-gate-val',
+         'inside-location','inside-name','inside-phone',
+         'outside-address','outside-name','outside-phone'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', validateOrder);
+        });
+    </script>
+</body>
+
+</html>

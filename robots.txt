@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://menshos.netlify.app/sitemap.xml
