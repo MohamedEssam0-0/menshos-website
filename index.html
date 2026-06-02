@@ -13,6 +13,10 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#FFD100">
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <!-- Geo tags for local search -->
     <meta name="geo.region" content="EG-C">
     <meta name="geo.placename" content="Dokki, Cairo, Egypt">
@@ -995,7 +999,7 @@
             font-weight: 700;
             letter-spacing: .1em;
             text-transform: uppercase;
-            opacity: .5;
+            opacity: .75;
             color: var(--black);
         }
 
@@ -2675,6 +2679,8 @@
         </div>
     </header>
 
+    <main>
+
     <!-- HERO -->
     <div id="top"></div>
     <section class="hero">
@@ -2821,6 +2827,8 @@
             </div>
         </div>
     </div>
+
+    </main>
 
     <!-- FOOTER -->
     <footer id="contact">
@@ -3241,6 +3249,8 @@
             sessionStorage.setItem('menshos_cart', JSON.stringify(cart));
         }
 
+        function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
         function getItem(id) { for (const c of MENU) for (const it of c.items) if (it.id === id) return it; return null; }
 
         function addToCart(id, mods, qty) {
@@ -3292,8 +3302,8 @@
                     const displayName = menuItem ? (typeof menuItem.name === 'object' ? menuItem.name[lang] : menuItem.name) : c.name;
                     return `<div class="ci">
         <div>
-          <div class="ci-name">${displayName}</div>
-          ${modsText ? `<div class="ci-mods">✏️ ${modsText}</div>` : ''}
+          <div class="ci-name">${esc(displayName)}</div>
+          ${modsText ? `<div class="ci-mods">✏️ ${esc(modsText)}</div>` : ''}
           <div class="ci-price">${c.price * c.qty} EGP</div>
           <div class="ci-qty">
             <button class="qbtn" onclick="chgQty(${i},-1)">−</button>
