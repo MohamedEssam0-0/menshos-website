@@ -7,7 +7,7 @@
     <title>MENSHOS — Crispy. Saucy. Loaded. | مطعم منشوز الدقي</title>
 
     <!-- SEO -->
-    <meta name="description" content="MENSHOS — Crispy. Saucy. Loaded. ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. بيك-أب فقط من نادي الصيد، الدقي، القاهرة. اتصل: 01147324430">
+    <meta name="description" content="MENSHOS — Crispy. Saucy. Loaded. ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. استلام أو توصيل عبر Uber Package من نادي الصيد، الدقي، القاهرة. اتصل: 01147324430">
     <meta name="keywords" content="MENSHOS, منشوز, مطعم الدقي, فرايد تشيكن, حواوشي, ماك اند تشيز, برجر, ساندوتش, نادي الصيد, الدقي, القاهرة, مطعم, restaurant cairo, dokki restaurant, fried chicken cairo">
     <meta name="author" content="MENSHOS">
     <meta name="robots" content="index, follow">
@@ -17,7 +17,7 @@
     <!-- Open Graph (WhatsApp, Facebook, Instagram previews) -->
     <meta property="og:type" content="restaurant">
     <meta property="og:title" content="MENSHOS — Crispy. Saucy. Loaded.">
-    <meta property="og:description" content="ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. بيك-أب فقط من نادي الصيد، الدقي، القاهرة. Sandwiches, burgers, wings, pasta, hawawshi & more. Pick-up only from El Said Club, Dokki.">
+    <meta property="og:description" content="ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. استلام أو توصيل عبر Uber Package من نادي الصيد، الدقي، القاهرة. Sandwiches, burgers, wings, pasta, hawawshi & more. Pick up or delivery via Uber Package from El Said Club, Dokki.">
     <meta property="og:image" content="https://menshos.netlify.app/images/lf1.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -29,7 +29,7 @@
     <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MENSHOS — Crispy. Saucy. Loaded.">
-    <meta name="twitter:description" content="ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. بيك-أب فقط من نادي الصيد، الدقي، القاهرة.">
+    <meta name="twitter:description" content="ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. استلام أو توصيل عبر Uber Package من نادي الصيد، الدقي، القاهرة.">
     <meta name="twitter:image" content="https://menshos.netlify.app/images/lf1.jpg">
 
     <!-- Local Business structured data for Google -->
@@ -60,6 +60,14 @@
       "hasMap": "https://maps.app.goo.gl/GD3JFvigdbrw57aB8"
     }
     </script>
+    <script>
+        history.scrollRestoration = 'manual';
+        // Strip any leftover hash so the browser cannot auto-scroll to it on load.
+        // This runs synchronously before the DOM is parsed, so it wins the race.
+        if (location.hash) {
+            history.replaceState(null, '', location.pathname + location.search);
+        }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap"
         rel="stylesheet">
@@ -82,10 +90,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
@@ -293,6 +297,13 @@
             letter-spacing: .02em;
         }
 
+        /* In RTL mode the BiDi algorithm pulls trailing dots to the visual left.
+           Force LTR direction on the all-Latin h1 while keeping it right-aligned. */
+        [dir="rtl"] .hero h1 {
+            direction: ltr;
+            text-align: right;
+        }
+
         .hero h1 .y {
             color: var(--yellow);
         }
@@ -377,15 +388,18 @@
         .pickup-tag {
             display: inline-flex;
             align-items: center;
-            gap: .3rem;
+            gap: .35rem;
             margin-top: 1rem;
             background: rgba(255, 209, 0, .08);
-            border: 1px solid rgba(255, 209, 0, .22);
+            border: 1px solid var(--yellow);
             color: var(--yellow);
-            padding: .28rem .8rem;
-            font-size: .7rem;
+            padding: 7px 15px;
+            font-size: clamp(13px, 1.6vw, 15px);
             font-weight: 700;
-            letter-spacing: .12em;
+            letter-spacing: .07em;
+        }
+        @media (max-width: 768px) {
+            .pickup-tag { font-size: 13px; padding: 6px 13px; }
         }
 
         .hero-visual {
@@ -1019,6 +1033,176 @@
             font-size: .78rem;
             color: var(--yellow);
             letter-spacing: .1em;
+        }
+
+        /* SCROLL-UP BUTTON */
+        .scroll-up {
+            position: fixed;
+            bottom: 1.6rem;
+            right: 1.6rem;
+            z-index: 190;
+            width: 42px;
+            height: 42px;
+            background: var(--black);
+            border: 1px solid var(--yellow);
+            color: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .25s, transform .25s, background .2s;
+            pointer-events: none;
+            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+        }
+
+        .scroll-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .scroll-up:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .scroll-up svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-up {
+                bottom: 72px;
+                right: 16px;
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        /* FLOATING CONTACT BUTTON */
+        .contact-fab {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 190;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: .55rem;
+            /* Force LTR so panel always opens rightward in both AR and EN */
+            direction: ltr;
+        }
+
+        .contact-panel {
+            background: var(--black);
+            border: 1px solid var(--yellow);
+            padding: .9rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+            opacity: 0;
+            transform: translateY(6px);
+            pointer-events: none;
+            transition: opacity .22s, transform .22s;
+            /* Restore RTL inside the panel so Arabic text reads correctly */
+            direction: inherit;
+        }
+
+        .contact-panel.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .contact-panel-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .25em;
+            color: var(--yellow);
+            text-transform: uppercase;
+            margin-bottom: .1rem;
+        }
+
+        .contact-num {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: .05em;
+            transition: color .18s;
+            white-space: nowrap;
+        }
+
+        .contact-num:hover { color: var(--yellow); }
+
+        .contact-num svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+            opacity: .65;
+        }
+
+        .contact-trigger {
+            width: 42px;
+            height: 42px;
+            background: var(--yellow);
+            border: none;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+            transition: background .2s, transform .2s;
+            flex-shrink: 0;
+        }
+
+        .contact-trigger:hover { background: var(--white); }
+        .contact-trigger.active { transform: rotate(135deg); }
+
+        .contact-trigger svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-fab {
+                bottom: 72px; /* clears the mobile nav bar (~56px) + 16px gap */
+                left: 16px;
+            }
+
+            .contact-trigger {
+                width: 38px;
+                height: 38px;
+            }
+
+            .contact-num { font-size: .98rem; }
         }
 
         /* MOB BAR */
@@ -2160,6 +2344,34 @@
             direction: ltr;
         }
 
+        /* Cart drawer — form elements in LTR mode */
+        [dir="ltr"] .pay-selector-label,
+        [dir="ltr"] .pay-opt-text,
+        [dir="ltr"] .time-box label,
+        [dir="ltr"] .time-box input,
+        [dir="ltr"] .instapay-info,
+        [dir="ltr"] .drw-total,
+        [dir="ltr"] .drw-hdr,
+        [dir="ltr"] .cart-note,
+        [dir="ltr"] .pickup-loc-selector {
+            text-align: left;
+            direction: ltr;
+        }
+
+        [dir="ltr"] .pay-opt {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .instapay-steps li {
+            text-align: left;
+        }
+
+        [dir="ltr"] .pbox-val,
+        [dir="ltr"] .pbox-label {
+            text-align: left;
+            direction: ltr;
+        }
+
         /* ══ CARD GRID (Instagram-style) ══ */
         .card-grid {
             display: grid;
@@ -2324,14 +2536,14 @@
             <div class="ticker-set">
                 <span>🔥 استمتع بكل قضمة أو استرد فلوسك</span>
                 <span>🍗 كريسبي. صوصي. مليان.</span>
-                <span>📍 نادي الصيد — الدقي · بيك-أب فقط</span>
+                <span>📍 نادي الصيد — الدقي · عايز توصيل؟ كلّمنا.</span>
                 <span>🧀 ماك أند تشيز ميكس — الأكثر طلباً</span>
                 <span>🫓 حواوشي بلدي MENSHOS — لازم تجرب</span>
             </div>
             <div class="ticker-set" aria-hidden="true">
                 <span>🔥 استمتع بكل قضمة أو استرد فلوسك</span>
                 <span>🍗 كريسبي. صوصي. مليان.</span>
-                <span>📍 نادي الصيد — الدقي · بيك-أب فقط</span>
+                <span>📍 نادي الصيد — الدقي · عايز توصيل؟ كلّمنا.</span>
                 <span>🧀 ماك أند تشيز ميكس — الأكثر طلباً</span>
                 <span>🫓 حواوشي بلدي MENSHOS — لازم تجرب</span>
             </div>
@@ -2341,14 +2553,14 @@
             <div class="ticker-set" dir="ltr">
                 <span>🔥 Enjoy Every Bite OR Get Your Money Back</span>
                 <span>🍗 Crispy. Saucy. Loaded.</span>
-                <span>📍 El Said Club — Dokki · Pick-Up Only</span>
+                <span dir="ltr">📍 El Said Club — Dokki · Want delivery? Call us.</span>
                 <span>🧀 Mac & Cheese Mix — Most Ordered</span>
                 <span>🫓 MENSHOS Hawawshi Meal — Must Try</span>
             </div>
             <div class="ticker-set" dir="ltr" aria-hidden="true">
                 <span>🔥 Enjoy Every Bite OR Get Your Money Back</span>
                 <span>🍗 Crispy. Saucy. Loaded.</span>
-                <span>📍 El Said Club — Dokki · Pick-Up Only</span>
+                <span dir="ltr">📍 El Said Club — Dokki · Want delivery? Call us.</span>
                 <span>🧀 Mac & Cheese Mix — Most Ordered</span>
                 <span>🫓 MENSHOS Hawawshi Meal — Must Try</span>
             </div>
@@ -2360,9 +2572,9 @@
         <a href="#top" class="logo">MENSHOS</a>
         <nav>
             <a href="#top" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-            <a href="#bestsellers" data-ar="Best Sellers" data-en="Best Sellers">Best Sellers</a>
+            <a href="#bestsellers" data-ar="الأكثر طلباً" data-en="Best Sellers">Best Sellers</a>
             <a href="#menu-start" data-ar="المنيو" data-en="Menu">المنيو</a>
-            <a href="#pickup" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
+            <a href="#contact" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
         </nav>
         <div class="hdr-right">
             <div class="lang-toggle">
@@ -2396,8 +2608,7 @@
                 <a href="tel:01147324430">📞 01147324430</a>
                 <a href="tel:01117467651">📞 01117467651</a>
             </div>
-            <div class="pickup-tag" data-ar="🏪 بيك-أب فقط — مفيش ديليفري" data-en="🏪 Pick-Up Only — No Delivery">🏪
-                بيك-أب فقط — مفيش ديليفري</div>
+            <div class="pickup-tag" data-ar="🛵 عايز توصيل؟ كلّمنا." data-en="<span dir='ltr'>🛵 Want delivery? Call us.</span>">🛵 عايز توصيل؟ كلّمنا.</div>
         </div>
         <div class="hero-visual">
             <div style="display:flex;flex-direction:column;gap:.75rem;width:100%;max-width:480px;">
@@ -2415,7 +2626,7 @@
     <!-- BEST SELLERS -->
     <section class="sec sec-alt" id="bestsellers">
         <div class="fi">
-            <div class="sec-label" data-ar="⭐ الأكثر طلباً دايماً" data-en="⭐ Always Most Ordered">⭐ الأكثر طلباً دايماً
+            <div class="sec-label" data-ar="⭐ الأكثر طلباً" data-en="⭐ Most Ordered">⭐ الأكثر طلباً
             </div>
             <h2 class="sec-title">BEST SELLERS</h2>
             <div class="yl"></div>
@@ -2457,9 +2668,9 @@
                     data-en="MENSHOS was built for people who love real food — crispy, saucy, loaded, satisfying. From fried chicken and burgers to hawawshi, chicken fatteh, and mac & cheese, everything is made for real flavor">
                     منشوز اتعملت لناس بتحب الأكل الحقيقي — كريسبي، صوصي مليان، وبيشبع.</p>
                 <p class="about-p"
-                    data-ar="إحنا في نادي الصيد — الدقي، وبنقدم بيك-أب فقط عشان نضمن إن كل طلب يوصلك طازج."
-                    data-en="We're at El Said Club — Dokki, offering pick-up only to make sure every order reaches you fresh">
-                    إحنا في نادي الصيد — الدقي، وبنقدم بيك-أب فقط عشان نضمن إن كل طلب يوصلك طازج.</p>
+                    data-ar="إحنا في نادي الصيد — الدقي. عايز توصيل؟ كلّمنا."
+                    data-en="<span dir='ltr'>We're at El Said Club — Dokki. Want delivery? Call us.</span>">
+                    إحنا في نادي الصيد — الدقي. عايز توصيل؟ كلّمنا.</p>
                 <div class="stats">
                     <div class="stat">
                         <div class="snum">15+</div>
@@ -2483,10 +2694,9 @@
     <div class="pickup-sec" id="pickup">
         <div>
             <div class="pl-lbl" data-ar="تعالانا" data-en="Come Visit">تعالانا</div>
-            <div class="pl-h">PICK UP ONLY</div>
-            <div class="pl-sub" data-ar="إحنا بيك-أب بس — مفيش ديليفري. اتصل أو واتساب وإحنا نجهزلك طلبك."
-                data-en="Pick-up only — no delivery. Call or WhatsApp us and we'll have your order ready.">إحنا بيك-أب
-                بس — مفيش ديليفري. اتصل أو واتساب وإحنا نجهزلك طلبك.</div>
+            <div class="pl-h">PICK UP OR DELIVERY</div>
+            <div class="pl-sub" data-ar="عايز توصيل؟ كلّمنا."
+                data-en="<span dir='ltr'>Want delivery? Call us.</span>">عايز توصيل؟ كلّمنا.</div>
             <div class="pickbtns">
                 <a href="tel:01147324430" class="btn-dk">📞 01147324430</a>
                 <a href="tel:01117467651" class="btn-dk">📞 01117467651</a>
@@ -2496,7 +2706,7 @@
             <div class="pbox"><span class="pbox-icon">📍</span>
                 <div>
                     <div class="pbox-lbl" data-ar="الموقع" data-en="Location">الموقع</div>
-                    <div class="pbox-val"><a href="https://maps.app.goo.gl/GD3JFvigdbrw57aB8?g_st=aw" target="_blank"
+                    <div class="pbox-val"><a href="https://www.google.com/maps/search/?api=1&query=Shooting%20Club%2C%20%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B5%D9%8A%D8%AF%2C%20El%20Said%20Club%2C%20Ad%20Doqi%2C%20Cairo%20Governorate%2012627%2C%20Egypt" target="_blank" rel="noopener noreferrer"
                             style="color:inherit;text-decoration:none;" data-ar="نادي الصيد — الدقي، القاهرة"
                             data-en="El Said Club — Dokki, Cairo">نادي الصيد — الدقي، القاهرة 📌</a></div>
                 </div>
@@ -2510,8 +2720,7 @@
             <div class="pbox"><span class="pbox-icon">🏪</span>
                 <div>
                     <div class="pbox-lbl" data-ar="نوع الخدمة" data-en="Service Type">نوع الخدمة</div>
-                    <div class="pbox-val" data-ar="بيك-أب فقط — Takeaway" data-en="Pick-Up Only — Takeaway">بيك-أب فقط —
-                        Takeaway</div>
+                    <div class="pbox-val" data-ar="استلام أو توصيل — اتصل بنا" data-en="<span dir='ltr'>Pick up or delivery — call us</span>">استلام أو توصيل — اتصل بنا</div>
                 </div>
             </div>
             <div class="pbox"><span class="pbox-icon">💬</span>
@@ -2525,19 +2734,19 @@
     </div>
 
     <!-- FOOTER -->
-    <footer>
+    <footer id="contact">
         <div class="ftg">
             <div>
                 <div class="ft-logo">MENSHOS</div>
-                <div class="ft-desc" data-ar="Crispy. Saucy. Loaded. — أكل حقيقي لناس حقيقية. نادي الصيد، الدقي."
-                    data-en="Crispy. Saucy. Loaded. — Real food for real people. El Said Club, Dokki.">Crispy. Saucy.
-                    Loaded. — أكل حقيقي لناس حقيقية. نادي الصيد، الدقي.</div>
+                <div class="ft-desc" data-ar="<span dir='ltr'>Crispy. Saucy. Loaded.</span> — أكل حقيقي لناس حقيقية. نادي الصيد، الدقي."
+                    data-en="Crispy. Saucy. Loaded. — Real food for real people. El Said Club, Dokki."><span dir="ltr">Crispy. Saucy.
+                    Loaded.</span> — أكل حقيقي لناس حقيقية. نادي الصيد، الدقي.</div>
                 <div class="ft-g">"ENJOY EVERY BITE OR GET YOUR MONEY BACK" 🔥</div>
             </div>
             <div>
                 <div class="ft-ct" data-ar="المنيو" data-en="Menu">المنيو</div>
                 <ul class="ftl">
-                    <li><a href="#bestsellers">⭐ Best Sellers</a></li>
+                    <li><a href="#bestsellers" data-ar="⭐ الأكثر طلباً" data-en="⭐ Best Sellers">⭐ Best Sellers</a></li>
                     <li><a href="#menu-start" data-ar="فرايد تشيكن" data-en="Fried Chicken">فرايد تشيكن</a></li>
                     <li><a href="#menu-start" data-ar="ونجز وتندرز" data-en="Wings & Tenders">ونجز وتندرز</a></li>
                     <li><a href="#menu-start" data-ar="برجر وساندوتشات" data-en="Burgers & Sandwiches">برجر
@@ -2552,7 +2761,8 @@
                 <ul class="ftl">
                     <li><a href="#top" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
                     <li><a href="#about" data-ar="عن منشوز" data-en="About">عن منشوز</a></li>
-                    <li><a href="#pickup" data-ar="الموقع" data-en="Location">الموقع</a></li>
+                    <li><a href="https://maps.app.goo.gl/j122k7spFEcd5P3Z8" target="_blank" rel="noopener noreferrer" data-ar="📍 نادي الصيد — الدقي" data-en="📍 Shooting Club — Dokki">📍 نادي الصيد — الدقي</a></li>
+                    <li><a href="https://www.google.com/maps/place/MENSHOS/@30.0445687,31.2027068,17z/data=!4m8!3m7!1s0x1458419aaee2d865:0x3dfa299e912fc6c!8m2!3d30.0445687!4d31.2027068!9m1!1b1!16s%2Fg%2F11n9r_2wwk?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" data-ar="اترك تقييمك" data-en="Leave a review">اترك تقييمك</a></li>
                 </ul>
             </div>
             <div>
@@ -2560,9 +2770,6 @@
                 <ul class="ftl">
                     <li><a href="tel:01147324430">📞 01147324430</a></li>
                     <li><a href="tel:01117467651">📞 01117467651</a></li>
-                    <li><a href="https://maps.app.goo.gl/GD3JFvigdbrw57aB8?g_st=aw" target="_blank">📍 <span
-                                data-ar="نادي الصيد — الدقي" data-en="El Said Club — Dokki">نادي الصيد —
-                                الدقي</span></a></li>
                     <li><a href="https://www.instagram.com/menshoss?igsh=MWpibzdyajBzcW9mMg%3D%3D" target="_blank">📸
                             Instagram</a></li>
                     <li><a href="https://www.tiktok.com/@menshos_?_r=1&_t=ZS-94f9nc9ZtNl" target="_blank">🎵 TikTok</a>
@@ -2588,6 +2795,29 @@
             <span class="mi">🛒</span><span data-ar="السلة" data-en="Cart">السلة</span>
             <span class="cart-badge" id="mob-count"
                 style="position:absolute;top:4px;right:14px;font-size:.55rem;">0</span>
+        </button>
+    </div>
+
+    <!-- SCROLL UP -->
+    <button class="scroll-up" id="scroll-up-btn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- FLOATING CONTACT -->
+    <div class="contact-fab" id="contact-fab">
+        <div class="contact-panel" id="contact-panel">
+            <div class="contact-panel-label" data-ar="اتصل بينا" data-en="Call Us">اتصل بينا</div>
+            <a href="tel:01117467651" class="contact-num">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.59 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+                01117467651
+            </a>
+            <a href="tel:01147324430" class="contact-num">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.59 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+                01147324430
+            </a>
+        </div>
+        <button class="contact-trigger" id="contact-trigger" aria-label="Contact">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.59 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
         </button>
     </div>
 
@@ -2618,11 +2848,7 @@
             <div class="pay-selector">
                 <span class="pay-selector-label" data-ar="💳 طريقة الدفع" data-en="💳 Payment Method">💳 طريقة الدفع</span>
                 <div class="pay-opts">
-                    <div class="pay-opt selected" id="pay-cash" onclick="selectPayment('cash')">
-                        <div class="pay-opt-radio"></div>
-                        <span class="pay-opt-text" data-ar="💵 كاش عند الاستلام" data-en="💵 Cash on Pickup">💵 كاش عند الاستلام</span>
-                    </div>
-                    <div class="pay-opt" id="pay-instapay" onclick="selectPayment('instapay')">
+                    <div class="pay-opt selected" id="pay-instapay" onclick="selectPayment('instapay')">
                         <div class="pay-opt-radio"></div>
                         <span class="pay-opt-text" data-ar="📲 Instapay / Telda" data-en="📲 Instapay / Telda">📲 Instapay / Telda</span>
                     </div>
@@ -2653,11 +2879,11 @@
                     </div>
                     <div class="pay-opt" id="svc-inside" onclick="selectService('inside')">
                         <div class="pay-opt-radio"></div>
-                        <span class="pay-opt-text" style="font-size:.72rem;" data-ar="🏌️ داخل النادي" data-en="🏌️ Inside Club">🏌️ داخل النادي</span>
+                        <span class="pay-opt-text" style="font-size:.72rem;" data-ar="🏌️ توصيل داخل النادي" data-en="🏌️ Delivery Inside Club">🏌️ توصيل داخل النادي</span>
                     </div>
                     <div class="pay-opt" id="svc-outside" onclick="selectService('outside')">
                         <div class="pay-opt-radio"></div>
-                        <span class="pay-opt-text" style="font-size:.72rem;" data-ar="🚗 خارج النادي" data-en="🚗 Outside Club">🚗 خارج النادي</span>
+                        <span class="pay-opt-text" style="font-size:.72rem;" data-ar="🚗 توصيل" data-en="🚗 Delivery">🚗 توصيل</span>
                     </div>
                 </div>
 
@@ -2675,26 +2901,40 @@
                         </div>
                     </div>
                     <div id="custom-gate-input" style="display:none;margin-bottom:.5rem;">
-                        <input type="text" id="custom-gate-val" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;" dir="rtl" placeholder="مثال: Gate 3 / البوابة 3" />
+                        <input type="text" id="custom-gate-val" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;" placeholder="مثال: Gate 3 / البوابة 3" />
                     </div>
-                    <input type="text" id="pickup-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
-                    <input type="tel" id="pickup-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;" dir="rtl" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
+                    <input type="text" id="pickup-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
+                    <input type="tel" id="pickup-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;" dir="ltr" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
                 </div>
 
                 <!-- Inside Club sub-options -->
                 <div id="svc-detail-inside" style="display:none;">
                     <div style="color:var(--gray);font-size:.68rem;margin-bottom:.4rem;" data-ar="📍 مكانك داخل النادي (ملعب، منطقة، إلخ)" data-en="📍 Your location inside the club (field, area, etc.)">📍 مكانك داخل النادي (ملعب، منطقة، إلخ)</div>
-                    <input type="text" id="inside-location" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="مثال: ملعب التنس، الحديقة، المسبح" data-en-placeholder="e.g. Tennis court, Garden, Pool area" placeholder="مثال: ملعب التنس، الحديقة، المسبح" />
-                    <input type="text" id="inside-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
-                    <input type="tel" id="inside-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;" dir="rtl" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
+                    <input type="text" id="inside-location" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" data-ar-placeholder="مثال: ملعب التنس، الحديقة، المسبح" data-en-placeholder="e.g. Tennis court, Garden, Pool area" placeholder="مثال: ملعب التنس، الحديقة، المسبح" />
+                    <input type="text" id="inside-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
+                    <input type="tel" id="inside-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;" dir="ltr" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
                 </div>
 
-                <!-- Outside Club sub-options -->
+                <!-- Delivery sub-options -->
                 <div id="svc-detail-outside" style="display:none;">
-                    <div style="color:var(--yellow);font-size:.68rem;margin-bottom:.4rem;font-weight:700;" data-ar="⚠️ ديليفري خارج النادي — السعر يتحدد حسب المسافة وهيتواصل معاك الكاشير" data-en="⚠️ Delivery outside club — price depends on distance, cashier will contact you">⚠️ ديليفري خارج النادي — السعر يتحدد حسب المسافة وهيتواصل معاك الكاشير</div>
-                    <input type="text" id="outside-address" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="عنوانك بالتفصيل" data-en-placeholder="Your full address" placeholder="عنوانك بالتفصيل" />
-                    <input type="text" id="outside-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;" dir="rtl" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
-                    <input type="tel" id="outside-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;" dir="rtl" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
+                    <!-- Call-first alert box -->
+                    <div style="background:rgba(255,209,0,.07);border:1.5px solid var(--yellow);padding:.65rem .8rem;margin-bottom:.7rem;">
+                        <div style="color:var(--yellow);font-size:.78rem;font-weight:800;margin-bottom:.4rem;" data-ar="⚠️ مهم جداً — لازم تتصل بينا الأول!" data-en="⚠️ Very Important — You must call us first!">⚠️ مهم جداً — لازم تتصل بينا الأول!</div>
+                        <div style="color:#ccc;font-size:.72rem;margin-bottom:.55rem;" data-ar="التوصيل مش متاح إلا بعد اتفاق مسبق معانا. اتصل دلوقتي واتفق على التفاصيل، وبعدين ابعت الطلب." data-en="<span dir='ltr'>Delivery is only available after prior arrangement. Call now, confirm the details, then place your order.</span>">التوصيل مش متاح إلا بعد اتفاق مسبق معانا. اتصل دلوقتي واتفق على التفاصيل، وبعدين ابعت الطلب.</div>
+                        <div style="display:flex;flex-direction:column;gap:.35rem;margin-bottom:.6rem;">
+                            <a href="tel:01147324430" style="display:flex;align-items:center;gap:.5rem;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.45rem .8rem;font-size:.84rem;font-family:'Cairo',sans-serif;text-decoration:none;font-weight:600;">📞 01147324430</a>
+                            <a href="tel:01117467651" style="display:flex;align-items:center;gap:.5rem;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.45rem .8rem;font-size:.84rem;font-family:'Cairo',sans-serif;text-decoration:none;font-weight:600;">📞 01117467651</a>
+                        </div>
+                        <!-- Confirmation checkbox -->
+                        <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;">
+                            <input type="checkbox" id="outside-confirmed" onchange="validateOrder()" style="margin-top:.15rem;accent-color:var(--yellow);width:16px;height:16px;flex-shrink:0;" />
+                            <span style="font-size:.72rem;color:var(--yellow);font-weight:700;" data-ar="✅ اتصلت وأكدت — أنا عارف التفاصيل" data-en="✅ I called and confirmed — I know the details">✅ اتصلت وأكدت — أنا عارف التفاصيل</span>
+                        </label>
+                    </div>
+                    <!-- Customer details -->
+                    <input type="text" id="outside-address" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;box-sizing:border-box;" data-ar-placeholder="عنوانك بالتفصيل" data-en-placeholder="Your full address" placeholder="عنوانك بالتفصيل" />
+                    <input type="text" id="outside-name" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;margin-bottom:.35rem;display:block;box-sizing:border-box;" data-ar-placeholder="اسمك" data-en-placeholder="Your name" placeholder="اسمك" />
+                    <input type="tel" id="outside-phone" style="width:100%;background:var(--card2);border:1px solid var(--border);color:#fff;padding:.5rem .8rem;font-size:.82rem;outline:none;font-family:'Cairo',sans-serif;display:block;box-sizing:border-box;" dir="ltr" data-ar-placeholder="رقم موبايلك" data-en-placeholder="Your phone number" placeholder="رقم موبايلك" />
                 </div>
             </div>
             <!-- ══ END SERVICE TYPE SELECTOR ══ -->
@@ -2984,11 +3224,11 @@
             const waBtn = document.getElementById('wa-btn');
             if (!waBtn) return;
             if (!cart.length) { waBtn.disabled = true; return; }
-            const time = (document.getElementById('pickup-time')?.value || '').trim();
-            if (!time) { waBtn.disabled = true; return; }
             if (!selectedPayment) { waBtn.disabled = true; return; }
             if (!selectedService) { waBtn.disabled = true; return; }
             if (selectedService === 'pickup') {
+                const time = (document.getElementById('pickup-time')?.value || '').trim();
+                if (!time) { waBtn.disabled = true; return; }
                 if (!selectedPickupPoint) { waBtn.disabled = true; return; }
                 if (selectedPickupPoint === 'custom') {
                     const gv = (document.getElementById('custom-gate-val')?.value || '').trim();
@@ -3003,6 +3243,8 @@
                 const ph  = (document.getElementById('inside-phone')?.value || '').trim();
                 if (!loc || !nm || !ph) { waBtn.disabled = true; return; }
             } else if (selectedService === 'outside') {
+                const confirmed = document.getElementById('outside-confirmed')?.checked;
+                if (!confirmed) { waBtn.disabled = true; return; }
                 const addr = (document.getElementById('outside-address')?.value || '').trim();
                 const nm   = (document.getElementById('outside-name')?.value || '').trim();
                 const ph   = (document.getElementById('outside-phone')?.value || '').trim();
@@ -3027,11 +3269,10 @@
         function closeCart() { document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').classList.remove('open'); document.body.style.overflow = ''; }
 
         // ═══════════════════════ PAYMENT METHOD — NEW ═══════════════════════
-        let selectedPayment = 'cash';
+        let selectedPayment = 'instapay';
 
         function selectPayment(method) {
             selectedPayment = method;
-            document.getElementById('pay-cash').classList.toggle('selected', method === 'cash');
             document.getElementById('pay-instapay').classList.toggle('selected', method === 'instapay');
             const info = document.getElementById('instapay-info');
             if (method === 'instapay') { info.classList.add('show'); } else { info.classList.remove('show'); }
@@ -3048,6 +3289,12 @@
                 document.getElementById('svc-' + s).classList.toggle('selected', s === svc);
                 document.getElementById('svc-detail-' + s).style.display = s === svc ? 'block' : 'none';
             });
+            const timeBox = document.querySelector('.time-box');
+            if (timeBox) timeBox.style.display = svc === 'pickup' ? 'block' : 'none';
+            if (svc !== 'outside') {
+                const cb = document.getElementById('outside-confirmed');
+                if (cb) cb.checked = false;
+            }
             validateOrder();
         }
 
@@ -3411,13 +3658,11 @@
 
         function sendOrder() {
             if (!cart.length) return;
-            const time = document.getElementById('pickup-time').value.trim() || (lang === 'ar' ? 'لم يحدد' : 'Not specified');
+            const time = selectedService === 'pickup' ? (document.getElementById('pickup-time')?.value.trim() || (lang === 'ar' ? 'لم يحدد' : 'Not specified')) : null;
             const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
 
             // ── Payment method ──
-            const payLabel = selectedPayment === 'instapay'
-                ? '📲 Instapay / Telda (بانتظار تأكيد الكاشير) · ارسل السكرين شوت مع طلبك'
-                : '💵 كاش عند الاستلام';
+            const payLabel = '📲 Instapay / Telda (بانتظار تأكيد الكاشير) · ارسل السكرين شوت مع طلبك';
 
             // ── Service / delivery details ──
             let serviceLabel = '';
@@ -3438,9 +3683,9 @@
                 serviceLabel = `🏌️ ${lang === 'ar' ? 'ديليفري داخل النادي' : 'Delivery Inside Club'}\n📍 ${lang === 'ar' ? 'المكان' : 'Location'}: ${loc}\n👤 ${lang === 'ar' ? 'الاسم' : 'Name'}: ${name}\n📞 ${lang === 'ar' ? 'موبايل' : 'Phone'}: ${phone}`;
             } else {
                 const addr  = (document.getElementById('outside-address')?.value.trim()) || '-';
-                const name  = (document.getElementById('outside-name')?.value.trim())   || '-';
-                const phone = (document.getElementById('outside-phone')?.value.trim())  || '-';
-                serviceLabel = `🚗 ${lang === 'ar' ? 'ديليفري خارج النادي (السعر يتحدد مع الكاشير)' : 'Delivery Outside Club (price to be agreed with cashier)'}\n📍 ${lang === 'ar' ? 'العنوان' : 'Address'}: ${addr}\n👤 ${lang === 'ar' ? 'الاسم' : 'Name'}: ${name}\n📞 ${lang === 'ar' ? 'موبايل' : 'Phone'}: ${phone}`;
+                const name  = (document.getElementById('outside-name')?.value.trim())    || '-';
+                const phone = (document.getElementById('outside-phone')?.value.trim())   || '-';
+                serviceLabel = `🚗 ${lang === 'ar' ? 'توصيل' : 'Delivery'}\n📍 ${lang === 'ar' ? 'العنوان' : 'Address'}: ${addr}\n👤 ${lang === 'ar' ? 'الاسم' : 'Name'}: ${name}\n📞 ${lang === 'ar' ? 'موبايل' : 'Phone'}: ${phone}`;
             }
 
             let msg = '🍗 *MENSHOS — طلب جديد*\n';
@@ -3455,7 +3700,7 @@
             msg += '━━━━━━━━━━━━━━━━━━\n';
             msg += `💰 *${lang === 'ar' ? 'الإجمالي' : 'Total'}: ${total} EGP*\n`;
             msg += `💳 *${lang === 'ar' ? 'طريقة الدفع' : 'Payment'}: ${payLabel}*\n`;
-            msg += `⏰ *${lang === 'ar' ? 'وقت الاستلام' : 'Time'}: ${time}*\n`;
+            if (time) msg += `⏰ *${lang === 'ar' ? 'وقت الاستلام' : 'Time'}: ${time}*\n`;
             msg += `📦 *${lang === 'ar' ? 'الخدمة' : 'Service'}:*\n${serviceLabel}\n`;
             msg += '🏪 *MENSHOS — نادي الصيد، الدقي*\n';
             msg += '\n_Enjoy Every Bite! 🔥_';
@@ -3638,7 +3883,10 @@
                     }
                 });
 
-                if (closestSection) {
+                // Only update if a section is actually near the viewport.
+                // Guards against the initial detectActiveSection() call (scroll=0) triggering
+                // setActiveTab → scrollIntoView, which would scroll the page to the menu.
+                if (closestSection && closestDistance < window.innerHeight * 1.5) {
                     const id = closestSection.id.replace('sec-', '');
                     setActiveCategory(id);
                 }
@@ -3784,15 +4032,18 @@
             try { cart = JSON.parse(_savedCart); } catch(e) { cart = []; }
         }
 
-        if (_savedPayment) {
+        if (_savedPayment && _savedPayment !== 'cash') {
             selectedPayment = _savedPayment;
             selectPayment(_savedPayment);
+        } else {
+            selectPayment('instapay');
         }
 
         if (_savedService) {
             selectService(_savedService);
         }
 
+        // Render all dynamic content FIRST so layout is stable before we scroll.
         renderBS();
         renderMenu();
         updateCartUI();
@@ -3802,6 +4053,24 @@
                 ? (el.getAttribute('data-ar-placeholder') || '')
                 : (el.getAttribute('data-en-placeholder') || '');
         });
+
+        // ── Scroll-to-top reset ──────────────────────────────────────────────
+        // Multiple calls are needed because fonts and images load asynchronously
+        // and cause layout shifts that can push the browser's scroll position down.
+        // CSS scroll-behavior is intentionally NOT set on html (removed above) so
+        // these instant scrolls are never overridden by a CSS smooth animation.
+        (function forceTop() { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); })();
+        requestAnimationFrame(function() { window.scrollTo(0, 0); });
+        setTimeout(function() { window.scrollTo(0, 0); }, 50);
+        setTimeout(function() { window.scrollTo(0, 0); }, 250);
+        setTimeout(function() { window.scrollTo(0, 0); }, 700);
+
+        // Handle bfcache: when Chrome/Safari restores the page from the
+        // back-forward cache, scrollRestoration='manual' is not always honoured.
+        window.addEventListener('pageshow', function(e) {
+            if (e.persisted) { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+        }, { once: false });
+
         setTimeout(() => { initFade(); initSpy(); }, 80);
 
         // Live validation on all order fields
@@ -3811,6 +4080,65 @@
             const el = document.getElementById(id);
             if (el) el.addEventListener('input', validateOrder);
         });
+
+        // Intercept all hash anchor clicks: smooth-scroll without writing hash to URL.
+        // This prevents the hash from surviving a refresh and causing mid-page load.
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var hash = this.getAttribute('href');
+                if (!hash || hash === '#') return;
+                e.preventDefault();
+                if (hash === '#top') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                var target = document.querySelector(hash);
+                if (!target) return;
+                var headerH = (document.querySelector('header') || {}).offsetHeight || 0;
+                var menuNav = document.querySelector('.menu-nav');
+                var navH = menuNav ? menuNav.offsetHeight : 0;
+                // Only add sticky menu-nav offset when it's actually visible (in menu section)
+                var inMenu = target.closest('#menu-body') !== null || target.id.startsWith('sec-');
+                var offset = headerH + (inMenu ? navH : 0) + 8;
+                var top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+            });
+        });
+
+        // Scroll-up button visibility
+        (function() {
+            const btn = document.getElementById('scroll-up-btn');
+            if (!btn) return;
+            window.addEventListener('scroll', function() {
+                btn.classList.toggle('visible', window.scrollY > 300);
+            }, { passive: true });
+        })();
+
+        // Floating contact toggle
+        (function() {
+            const trigger = document.getElementById('contact-trigger');
+            const panel   = document.getElementById('contact-panel');
+            if (!trigger || !panel) return;
+
+            function closePanel() {
+                panel.classList.remove('open');
+                trigger.classList.remove('active');
+            }
+
+            trigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = panel.classList.toggle('open');
+                trigger.classList.toggle('active', isOpen);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!document.getElementById('contact-fab').contains(e.target)) closePanel();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closePanel();
+            });
+        })();
     </script>
 </body>
 
