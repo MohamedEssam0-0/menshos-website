@@ -4,21 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MENSHOS — Crispy. Saucy. Loaded. | مطعم منشوز الدقي</title>
+    <title>MENSHOS Restaurant | مطعم منشوز — Dokki, Cairo الدقي</title>
 
     <!-- SEO -->
-    <meta name="description" content="MENSHOS — Crispy. Saucy. Loaded. ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. استلام أو توصيل عبر Uber Package من نادي الصيد، الدقي، القاهرة. اتصل: 01147324430">
-    <meta name="keywords" content="MENSHOS, منشوز, مطعم الدقي, فرايد تشيكن, حواوشي, ماك اند تشيز, برجر, ساندوتش, نادي الصيد, الدقي, القاهرة, مطعم, restaurant cairo, dokki restaurant, fried chicken cairo">
+    <meta name="description" content="MENSHOS — مطعم الدقي، القاهرة. فرايد تشيكن كريسبي، برجر، وينجز، ماك اند تشيز، حواوشي وأكتر. Crispy chicken, burgers, wings & more at El Said Club, Dokki. Order via WhatsApp · 01147324430">
+    <meta name="keywords" content="MENSHOS, منشوز, مطعم منشوز, مطعم الدقي, فرايد تشيكن الدقي, فرايد تشيكن القاهرة, حواوشي, ماك اند تشيز, برجر, وينجز, ساندوتشات, نادي الصيد, الدقي, القاهرة, menshos restaurant, restaurant Dokki Cairo, fried chicken Cairo, fast food Cairo, crispy chicken Cairo, El Said Club food">
     <meta name="author" content="MENSHOS">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#FFD100">
+
+    <!-- Geo tags for local search -->
+    <meta name="geo.region" content="EG-C">
+    <meta name="geo.placename" content="Dokki, Cairo, Egypt">
+    <meta name="geo.position" content="30.0444;31.2097">
+    <meta name="ICBM" content="30.0444, 31.2097">
+
+    <!-- Canonical + hreflang for bilingual SPA -->
     <link rel="canonical" href="https://menshos.netlify.app/">
+    <link rel="alternate" hreflang="ar" href="https://menshos.netlify.app/">
+    <link rel="alternate" hreflang="en" href="https://menshos.netlify.app/">
+    <link rel="alternate" hreflang="x-default" href="https://menshos.netlify.app/">
 
     <!-- Open Graph (WhatsApp, Facebook, Instagram previews) -->
-    <meta property="og:type" content="restaurant">
-    <meta property="og:title" content="MENSHOS — Crispy. Saucy. Loaded.">
-    <meta property="og:description" content="ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. استلام أو توصيل عبر Uber Package من نادي الصيد، الدقي، القاهرة. Sandwiches, burgers, wings, pasta, hawawshi & more. Pick up or delivery via Uber Package from El Said Club, Dokki.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MENSHOS Restaurant | مطعم منشوز — Dokki, Cairo">
+    <meta property="og:description" content="فرايد تشيكن كريسبي، برجر، وينجز، ماك اند تشيز، حواوشي وأكتر · نادي الصيد، الدقي، القاهرة. Crispy chicken sandwiches, burgers, wings, mac & cheese, hawawshi & more · El Said Club, Dokki, Cairo.">
     <meta property="og:image" content="https://menshos.netlify.app/images/lf1.jpg">
+    <meta property="og:image:alt" content="MENSHOS — Crispy Fried Chicken, Dokki Cairo">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://menshos.netlify.app/">
@@ -28,26 +40,32 @@
 
     <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MENSHOS — Crispy. Saucy. Loaded.">
-    <meta name="twitter:description" content="ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر. استلام أو توصيل عبر Uber Package من نادي الصيد، الدقي، القاهرة.">
+    <meta name="twitter:title" content="MENSHOS Restaurant | مطعم منشوز — Dokki, Cairo">
+    <meta name="twitter:description" content="فرايد تشيكن، برجر، وينجز، ماك اند تشيز وأكتر · نادي الصيد، الدقي، القاهرة. Fried chicken, burgers, wings & more · El Said Club, Dokki, Cairo.">
     <meta name="twitter:image" content="https://menshos.netlify.app/images/lf1.jpg">
 
-    <!-- Local Business structured data for Google -->
+    <!-- Restaurant structured data for Google -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
+      "@id": "https://menshos.netlify.app/#restaurant",
       "name": "MENSHOS",
-      "description": "Crispy. Saucy. Loaded. ساندوتشات، برجر، وينجز، باستا، حواوشي وأكتر",
+      "alternateName": "منشوز",
+      "description": "MENSHOS — Crispy fried chicken sandwiches, burgers, wings, chicken tenders, mac & cheese, hawawshi, pasta and more. Located at El Said Club (Shooting Club), Dokki, Cairo.",
       "url": "https://menshos.netlify.app/",
-      "telephone": "+201147324430",
-      "servesCuisine": ["Egyptian", "American", "Fast Food"],
+      "menu": "https://menshos.netlify.app/#menu-body",
+      "telephone": ["+201147324430", "+201117467651"],
+      "servesCuisine": ["Egyptian", "American", "Fast Food", "Fried Chicken", "Burgers"],
       "priceRange": "$$",
+      "currenciesAccepted": "EGP",
+      "paymentAccepted": "Instapay, Telda",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "نادي الصيد، الدقي",
+        "streetAddress": "El Said Club (Shooting Club), Dokki",
         "addressLocality": "Dokki",
         "addressRegion": "Cairo",
+        "postalCode": "12627",
         "addressCountry": "EG"
       },
       "geo": {
@@ -55,9 +73,78 @@
         "latitude": "30.0444",
         "longitude": "31.2097"
       },
-      "openingHours": "Mo-Su",
-      "image": "https://menshos.netlify.app/images/lf1.jpg",
-      "hasMap": "https://maps.app.goo.gl/GD3JFvigdbrw57aB8"
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+      },
+      "image": [
+        "https://menshos.netlify.app/images/lf1.jpg",
+        "https://menshos.netlify.app/images/fc1.jpg",
+        "https://menshos.netlify.app/images/b1.jpg"
+      ],
+      "hasMap": "https://maps.app.goo.gl/GD3JFvigdbrw57aB8",
+      "sameAs": [
+        "https://www.instagram.com/menshoss",
+        "https://www.tiktok.com/@menshos_"
+      ]
+    }
+    </script>
+
+    <!-- FAQ structured data for Google People Also Ask -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where is MENSHOS restaurant located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MENSHOS is located at El Said Club (Shooting Club / نادي الصيد), Dokki, Cairo, Egypt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "أين يقع مطعم منشوز؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "مطعم منشوز موجود في نادي الصيد، الدقي، القاهرة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I order from MENSHOS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can order from MENSHOS by visiting menshos.netlify.app and sending your order via WhatsApp, or by calling 01147324430 or 01117467651."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does MENSHOS deliver?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MENSHOS offers delivery. You must call us first to arrange the details: 01147324430 or 01117467651."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What food does MENSHOS serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MENSHOS serves crispy fried chicken sandwiches, burgers, chicken wings, chicken tenders, mac & cheese, hawawshi, pasta, loaded fries, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما رقم تليفون منشوز؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "رقم تليفون مطعم منشوز: 01147324430 أو 01117467651."
+          }
+        }
+      ]
     }
     </script>
     <script>
