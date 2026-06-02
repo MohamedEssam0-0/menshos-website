@@ -2702,6 +2702,7 @@
                 <div class="hero-box" style="aspect-ratio:4/3;">
                     <div class="live-tag">🔥 POPULAR NOW</div>
                     <img src="images/lf1.jpg" alt="Crispy Chicken Loaded Fries"
+                        decoding="async" fetchpriority="high"
                         style="width:100%;height:100%;object-fit:cover;display:block;"
                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                     <span class="float-food" style="display:none">🍟</span>
@@ -2734,6 +2735,7 @@
         <div class="about-grid">
             <div class="about-img fi">
                 <img src="images/mc5.jpg" alt="Mix Mac & Cheese"
+                    loading="lazy" decoding="async"
                     style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"
                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span style="font-size:7rem;filter:drop-shadow(0 0 28px rgba(255,209,0,.3));display:none">🍗</span>
@@ -3816,7 +3818,7 @@
                 const icon = catIcon(it.id);
                 return `<div class="icard fi">
   <div class="icard-img">
-    <img src="images/${it.id}.jpg" alt="${name}"
+    <img src="images/${it.id}.jpg" alt="${name}" loading="lazy" decoding="async"
       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="icard-fallback" style="display:none">${icon}</div>
   </div>
@@ -3854,7 +3856,7 @@
                         const btnLabel = hasCustom ? (lang === 'ar' ? 'تخصيص + إضافة' : 'Customize + Add') : (lang === 'ar' ? 'أضف للسلة' : 'Add to Cart');
                         return `<div class="icard fi">
   <div class="icard-img">
-    <img src="images/${it.id}.jpg" alt="${name}"
+    <img src="images/${it.id}.jpg" alt="${name}" loading="lazy" decoding="async"
       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="icard-fallback" style="display:none">${c.icon}</div>
   </div>
